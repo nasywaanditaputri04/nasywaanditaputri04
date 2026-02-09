@@ -66,3 +66,11 @@ footer {
     text-align: center;
     padding: 15px;
 }
+
+.hero-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
