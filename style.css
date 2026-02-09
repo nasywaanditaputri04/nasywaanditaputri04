@@ -70,7 +70,7 @@ footer {
 .hero-banner {
     background: 
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("images/library.jpg");
+        url("images/library.jpeg");
     background-size: cover;
     background-position: center;
     padding: 100px 20px;
