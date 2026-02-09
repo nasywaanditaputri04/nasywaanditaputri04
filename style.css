@@ -67,10 +67,22 @@ footer {
     padding: 15px;
 }
 
-.hero-image {
-    width: 100%;
-    max-height: 350px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 25px;
+.hero-banner {
+    background: 
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("images/library.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+}
+
+.hero-banner h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero-banner p {
+    font-size: 18px;
 }
