@@ -5,17 +5,46 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<h1><b>Nanaribrary</b></h1>
+	
+<header class="navbar">
+    <div class="logo">Nanaribrary</div>
+    <div class="nav-links">
+        <a href="#login">Login</a>
+        <a href="#daftar">Daftar</a>
+    </div>
 </header>
 
-<section>
+<section class="hero">
 <h2>Welcome to My Personal Space 🚀</h2>
 <p>Melalui <i>website</i> ini, saya mempersembahkan 
 perjalanan dan karya  merepresentasikan diri saya saat ini.</p> <p>Setiap bagian dirancang untuk memberikan gambaran yang jelas tentang siapa saya dan apa yang saya kembangkan. 
 </p>
+<div class="hero-buttons">
+    <a href="#login" class="btn">Login</a>
+    <a href="#daftar" class="btn btn-outline">Daftar</a>
+</div>
+</section>
+   
+<section id="login" class="form-section">
+<h3>Login</h3>
+<form>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
 </section>
 
+<section id="daftar" class="form-section">
+<h3>Daftar</h3>
+<form>
+    <input type="text" placeholder="First Name" required>
+    <input type="text" placeholder="Last Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="tel" placeholder="No Telepon" required>
+    <button type="submit">Kirim</button>
+</form>
+</section>
+	
 <section>
 <h3><b>✨Explore More About Me</b></h3>
 <p> Klik dibawah ini untuk mengenal saya lebih dalam.</p>
