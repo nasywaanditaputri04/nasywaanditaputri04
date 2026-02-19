@@ -10,14 +10,16 @@ body {
     background-color: #FEEAC9;
 }
 
+/* HERO BANNER */
 .hero-banner {
     background: url('library.jpeg') no-repeat center center/cover;
     padding: 60px 20px;
     text-align: center;
-    color: black;
+    color: white;
     position: relative;
 }
 
+/* TOP NAV */
 .top-nav {
     position: absolute;
     top: 15px;
@@ -27,10 +29,12 @@ body {
 .top-nav a {
     margin-left: 15px;
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
+/* SEARCH */
 .search-box {
     display: inline-block;
     margin-left: 20px;
@@ -40,6 +44,7 @@ body {
     padding: 5px;
 }
 
+/* SIDE NAV */
 .side-nav {
     position: fixed;
     left: 0;
@@ -55,6 +60,7 @@ body {
     padding: 10px;
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 .side-nav a:hover {
@@ -68,38 +74,6 @@ body {
 .hero {
     padding: 40px;
     text-align: center;
-}
-
-.btn, .btn-outline {
-    padding: 10px 20px;
-    text-decoration: none;
-    margin: 5px;
-    display: inline-block;
-}
-
-.btn {
-    background-color: #FFCDC9;
-    color: black;
-}
-
-.btn-outline {
-    border: 2px solid #FFCDC9;
-    color: black;
-}
-
-.form-section {
-    padding: 40px;
-}
-
-.form-container {
-    display: flex;
-    gap: 40px;
-}
-
-.form-box {
-    background-color: #FFCDC9;
-    padding: 20px;
-    width: 100%;
 }
 
 hr {
@@ -117,10 +91,11 @@ footer {
 </head>
 <body>
 
+<!-- SIDE NAV -->
 <div class="side-nav">
-    <a href="#home" target="_blank">Home</a>
-    <a href="#about" target="_blank">About Owner</a>
-    <a href="#contact" target="_blank">Contact Us</a>
+    <a onclick="openLogin()">Login / Daftar</a>
+    <a onclick="openAbout()">About Owner</a>
+    <a onclick="openContact()">Contact Us</a>
 </div>
 
 <div class="content">
@@ -128,137 +103,156 @@ footer {
 <header class="hero-banner">
 
     <nav class="top-nav">
-        <a href="#auth" target="_blank">Login/Daftar</a>
-        <a href="#about" target="_blank">About Owner</a>
-        <a href="#contact" target="_blank">Contact Us</a>
+        <a onclick="openLogin()">Login/Daftar</a>
+        <a onclick="openAbout()">About Owner</a>
+        <a onclick="openContact()">Contact Us</a>
 
         <span class="search-box">
             <input type="text" placeholder="Search...">
         </span>
     </nav>
 
-	<h1>Nanaribrary</h1>
-	<p>Ruang Aman dan Reflektif untuk Belajar</p>
+    <h1>Nanaribrary</h1>
+    <p>Ruang Aman dan Reflektif untuk Belajar</p>
 
 </header>
 
-<section id="home" class="hero">
-	<h2>Selamat Datang di Nanaribrary 🚀</h2>
-	<p>
-		Nanaribrary hadir sebagai ruang literasi dan pengetahuan 
-		yang inklusif, tenang, serta mendukung kesejahteraan intelektual
-		dan psikologis penggunanya.
-	</p>
-</section>
-
-<section id="auth" class="form-section">
-	<h3>Login atau Daftar</h3>
-
-    <button onclick="showLogin()">Login</button>
-    <button onclick="showRegister()">Daftar</button>
-
-	<div class="form-container">
-
-		<div class="form-box" id="loginForm" style="display:none;">
-			<h4>Sudah punya akun? Login</h4>
-			<form>
-				<label>Email:</label>
-				<input type="email" required>
-
-				<label>Password:</label>
-				<input type="password" required>
-
-				<button type="submit">Login</button>
-			</form>
-		</div>
-
-		<div class="form-box" id="registerForm" style="display:none;">
-			<h4>Belum punya akun? Daftar</h4>
-			<form>
-				<label>First Name:</label>
-				<input type="text" required>
-
-				<label>Last Name:</label>
-				<input type="text" required>
-
-				<label>Email:</label>
-				<input type="email" required>
-
-				<label>No. Telepon:</label>
-				<input type="tel" required>
-
-				<label>Password:</label>
-				<input type="password" required>
-
-				<label>Konfirmasi Password:</label>
-				<input type="password" required>
-
-				<button type="submit">Kirim</button>
-			</form>
-		</div>
-
-	</div>
-</section>
-
-<section id="about" class="form-section">
-	<h3>About Owner</h3>
-	<p>Mengenal lebih dekat pemilik Nanaribrary.</p>
-
-	<ul>
-		<li><a href="https://www.instagram.com/nasywwaa_nap27/" target="_blank">My Social Media</a></li>
-		<li><a href="https://sites.google.com/view/nasywaonlineportfolio/whos-nap" target="_blank">My Portfolio</a></li>
-	</ul>
-
-	<h4>🌿 The Process</h4>
-
-	<video width="320" controls>
-		<source src="video-saya.mp4" type="video/mp4">
-	</video>
-
-	<p>Musik yang menemani proses belajar dan berkarya.</p>
-
-	<audio controls>
-		<source src="audio-saya.mp3" type="audio/mpeg">
-	</audio>
+<section class="hero">
+    <h2>Selamat Datang di Nanaribrary 🚀</h2>
+    <p>
+        Nanaribrary hadir sebagai ruang literasi dan pengetahuan 
+        yang inklusif, tenang, serta mendukung kesejahteraan intelektual
+        dan psikologis penggunanya.
+    </p>
 </section>
 
 <hr>
 
-<section id="contact" class="form-section">
-	<h3>Contact Us</h3>
-	<form>
-		<label>Email Anda:</label>
-		<input type="email" required>
+<section>
+    <h3 style="text-align:center;">Contact Us</h3>
+    <form style="padding:40px;">
+        <label>Email Anda:</label><br>
+        <input type="email" required><br><br>
 
-		<label>No. Telepon:</label>
-		<input type="tel" required>
+        <label>No. Telepon:</label><br>
+        <input type="tel" required><br><br>
 
-		<label>Pesan Anda:</label>
-		<textarea rows="4" required></textarea>
+        <label>Pesan Anda:</label><br>
+        <textarea rows="4" required></textarea><br><br>
 
-		<button type="submit">Kirim</button>
-	</form>
+        <button type="submit">Kirim</button>
+    </form>
 </section>
 
 <footer>
-  	<p>Let’s connect.</p>
-	<p>Email: nasywaanditaputri04@gmail.com</p>
-	<p>WhatsApp: +62 821-6612-1137</p>
-  	<p>© 2026 Nanaribrary. All Rights Reserved.</p>
+    <p>Let’s connect.</p>
+    <p>Email: nasywaanditaputri04@gmail.com</p>
+    <p>WhatsApp: +62 821-6612-1137</p>
+    <p>© 2026 Nanaribrary. All Rights Reserved.</p>
 </footer>
 
 </div>
 
 <script>
-function showLogin() {
-    document.getElementById("loginForm").style.display = "block";
-    document.getElementById("registerForm").style.display = "none";
+
+/* LOGIN PAGE */
+function openLogin() {
+    let newTab = window.open("", "_blank");
+    newTab.document.write(`
+        <html>
+        <head>
+        <title>Login / Daftar</title>
+        <style>
+        body { font-family: Arial; background:#FEEAC9; padding:40px; }
+        .box { background:#FFCDC9; padding:20px; margin-bottom:20px; }
+        </style>
+        </head>
+        <body>
+        <h2>Login atau Daftar</h2>
+
+        <div class="box">
+        <h3>Login</h3>
+        <input type="email" placeholder="Email"><br><br>
+        <input type="password" placeholder="Password"><br><br>
+        <button>Login</button>
+        </div>
+
+        <div class="box">
+        <h3>Daftar</h3>
+        <input type="text" placeholder="First Name"><br><br>
+        <input type="text" placeholder="Last Name"><br><br>
+        <input type="email" placeholder="Email"><br><br>
+        <input type="tel" placeholder="No Telepon"><br><br>
+        <input type="password" placeholder="Password"><br><br>
+        <button>Kirim</button>
+        </div>
+
+        </body>
+        </html>
+    `);
 }
 
-function showRegister() {
-    document.getElementById("registerForm").style.display = "block";
-    document.getElementById("loginForm").style.display = "none";
+/* ABOUT PAGE */
+function openAbout() {
+    let newTab = window.open("", "_blank");
+    newTab.document.write(`
+        <html>
+        <head>
+        <title>About Owner</title>
+        <style>
+        body { font-family: Arial; background:#FEEAC9; padding:40px; }
+        </style>
+        </head>
+        <body>
+        <h2>About Owner</h2>
+        <p>Mengenal lebih dekat pemilik Nanaribrary.</p>
+
+        <ul>
+        <li><a href="https://www.instagram.com/nasywwaa_nap27/" target="_blank">My Social Media</a></li>
+        <li><a href="https://sites.google.com/view/nasywaonlineportfolio/whos-nap" target="_blank">My Portfolio</a></li>
+        </ul>
+
+        <h3>The Process</h3>
+
+        <video width="320" controls>
+        <source src="video-saya.mp4" type="video/mp4">
+        </video>
+
+        <p>Musik yang menemani proses belajar dan berkarya.</p>
+
+        <audio controls>
+        <source src="audio-saya.mp3" type="audio/mpeg">
+        </audio>
+
+        </body>
+        </html>
+    `);
 }
+
+/* CONTACT PAGE */
+function openContact() {
+    let newTab = window.open("", "_blank");
+    newTab.document.write(`
+        <html>
+        <head>
+        <title>Contact Us</title>
+        <style>
+        body { font-family: Arial; background:#FEEAC9; padding:40px; }
+        </style>
+        </head>
+        <body>
+        <h2>Contact Us</h2>
+
+        <input type="email" placeholder="Email Anda"><br><br>
+        <input type="tel" placeholder="No Telepon"><br><br>
+        <textarea rows="4" placeholder="Pesan Anda"></textarea><br><br>
+        <button>Kirim</button>
+
+        </body>
+        </html>
+    `);
+}
+
 </script>
 
 </body>
