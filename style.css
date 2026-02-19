@@ -73,76 +73,72 @@ footer {
     font-size: 14px;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
+nav {
     background: #2c3e50;
-    color: white;
+    padding: 15px;
+    text-align: center;
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.nav-links a {
+nav a {
     color: white;
-    margin-left: 20px;
+    margin: 0 20px;
     text-decoration: none;
     font-weight: bold;
 }
 
-.nav-links a:hover {
+nav a:hover {
     text-decoration: underline;
-}
-
-.hero {
-    text-align: center;
-    padding: 60px 20px;
 }
 
 .hero-buttons {
     margin-top: 20px;
 }
 
-.btn {
-    background: #2c3e50;
-    color: white;
+.btn, .btn-outline {
     padding: 10px 20px;
-    text-decoration: none;
     border-radius: 5px;
+    text-decoration: none;
     margin: 5px;
     display: inline-block;
 }
 
+.btn {
+    background: #2c3e50;
+    color: white;
+}
+
 .btn-outline {
-    background: transparent;
     border: 2px solid #2c3e50;
     color: #2c3e50;
 }
 
-.btn:hover {
+.btn:hover, .btn-outline:hover {
     opacity: 0.8;
 }
 
-.form-section {
-    text-align: center;
-    padding: 50px 20px;
-    background: #f4f6f8;
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.form-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 320px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 form {
-    max-width: 400px;
-    margin: auto;
     display: flex;
     flex-direction: column;
 }
 
-form input {
-    margin: 10px 0;
-    padding: 10px;
+form input, textarea {
+    margin: 8px 0;
+    padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
