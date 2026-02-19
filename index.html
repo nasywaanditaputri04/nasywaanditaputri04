@@ -2,250 +2,337 @@
 <html>
 <head>
 <title>Nanaribrary</title>
-
 <style>
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #FEEAC9;
+    color: #333;
 }
 
 .hero-banner {
-    background-color: #FFCDC9;
-    padding: 20px;
-    text-align: center;
+    background-image: url('library.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
     position: relative;
 }
 
-.top-nav {
+.hero-banner::before {
+    content: '';
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(254, 234, 201, 0.8);
+}
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+    z-index: 10;
 }
 
 .top-nav a {
-    margin-left: 15px;
+    color: #333;
     text-decoration: none;
-    color: black;
     font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
 
-.search-box {
-    position: absolute;
-    top: 15px;
-    right: 300px;
-}
-
-.search-box input {
-    padding: 5px;
-}
-
-.side-nav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 150px;
-    height: 100%;
+.top-nav a:hover {
     background-color: #FFCDC9;
-    padding-top: 100px;
 }
 
-.side-nav a {
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #FFCDC9;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.hero-banner h1, .hero-banner p {
+    color: #333;
+    z-index: 10;
+    text-align: center;
+    margin: 0;
+}
+
+.hero-banner h1 {
+    font-size: 3em;
+}
+
+.section {
+    padding: 60px 20px;
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section.active {
     display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: black;
-}
-
-.side-nav a:hover {
-    background-color: #FEEAC9;
 }
 
 .hero {
-    padding: 40px;
+    padding: 60px 20px;
     text-align: center;
-    margin-left: 170px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: block;
 }
 
-.hero-button a {
-    padding: 10px 20px;
-    text-decoration: none;
+.btn, .btn-outline {
+    display: inline-block;
+    padding: 12px 24px;
     margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
 .btn {
     background-color: #FFCDC9;
+    color: #333;
+}
+
+.btn:hover {
+    background-color: #FEEAC9;
 }
 
 .btn-outline {
     border: 2px solid #FFCDC9;
+    color: #333;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: #FFCDC9;
 }
 
 .form-section {
+    background-color: #FFCDC9;
+    border-radius: 10px;
     padding: 40px;
-    margin-left: 170px;
 }
 
 .form-container {
     display: flex;
-    gap: 50px;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .form-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-box label {
+    font-weight: bold;
+}
+
+.form-box input, .form-box textarea {
+    padding: 10px;
+    border: 1px solid #FEEAC9;
+    border-radius: 5px;
+}
+
+.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
     background-color: #FFCDC9;
-    padding: 20px;
-    width: 300px;
+    transition: left 0.3s;
+    z-index: 1000;
+    padding: 20px 0;
 }
 
-input, textarea {
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1001;
+    background: #FFCDC9;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #FEEAC9;
+}
+
+.sidebar-nav a:hover {
+    background-color: #FEEAC9;
+}
+
+.divider {
+    height: 2px;
+    background-color: #FEEAC9;
+    margin: 40px 0;
+}
+
+video, audio {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
+    max-width: 320px;
+    margin: 20px 0;
 }
 
-#about {
-    display: none;
-    padding: 40px;
-    margin-left: 170px;
+ul.b {
+    list-style: none;
+    padding: 0;
 }
 
-#auth {
-    display: none;
-}
-
-#login-form, #register-form {
-    display: none;
-}
-
-.contact-divider {
-    border-top: 3px solid #FFCDC9;
-    margin: 40px 170px;
+ul.b li {
+    margin: 10px 0;
 }
 
 footer {
     background-color: #FFCDC9;
     text-align: center;
     padding: 20px;
+    margin-top: 40px;
 }
-</style>
 
-<script>
-function showAuth(type) {
-    document.getElementById("auth").style.display = "block";
-    document.getElementById("login-form").style.display = "none";
-    document.getElementById("register-form").style.display = "none";
-
-    if(type === "login"){
-        document.getElementById("login-form").style.display = "block";
-    } else {
-        document.getElementById("register-form").style.display = "block";
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+    }
+    
+    .top-nav {
+        flex-direction: column;
     }
 }
-
-function showSection(sectionId){
-    document.getElementById("about").style.display = "none";
-    document.getElementById("auth").style.display = "none";
-    document.getElementById(sectionId).style.display = "block";
-}
-</script>
-
+</style>
 </head>
 <body>
 
-<div class="side-nav">
-    <a href="#" target="_blank">Home</a>
-    <a href="#" onclick="showSection('about')" target="_blank">About Owner</a>
-    <a href="#" onclick="showAuth('login')" target="_blank">Login/Daftar</a>
-    <a href="#contact" target="_blank">Contact Us</a>
-</div>
+<button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-nav">
+        <a href="#" onclick="showSection('hero')">Home</a>
+        <a href="#" onclick="showSection('auth')">Login/Daftar</a>
+        <a href="#" onclick="showSection('about')">About Owner</a>
+        <a href="#" onclick="showSection('contact')">Contact Us</a>
+    </div>
+</nav>
 
 <header class="hero-banner">
-
-    <div class="search-box">
-        <input type="text" placeholder="Search...">
-    </div>
-
     <nav class="top-nav">
-        <a href="#" onclick="showAuth('login')" target="_blank">Login/Daftar</a>
-        <a href="#" onclick="showSection('about')" target="_blank">About Owner</a>
-        <a href="#contact" target="_blank">Contact Us</a>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search...">
+        </div>
+        <a href="#" onclick="showSection('auth'); return false;" target="_blank">Login/Daftar</a>
+        <a href="#about" onclick="showSection('about'); return false;" target="_blank">About Owner</a>
+        <a href="#contact" onclick="showSection('contact'); return false;" target="_blank">Contact Us</a>
     </nav>
-
-    <h1>Nanaribrary</h1>
-    <p>Ruang Aman dan Reflektif untuk Belajar</p>
-
+    <div>
+        <h1>Nanaribrary</h1>
+        <p>Ruang Aman dan Reflektif untuk Belajar</p>
+    </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="hero">
     <h2>Selamat Datang di Nanaribrary 🚀</h2>
     <p>
         Nanaribrary hadir sebagai ruang literasi dan pengetahuan 
         yang inklusif, tenang, serta mendukung kesejahteraan intelektual
         dan psikologis penggunanya.
     </p>
-</section>
-
-<section id="auth" class="form-section">
-    <h3>Pilih Akses</h3>
-    <button onclick="showAuth('login')">Login</button>
-    <button onclick="showAuth('register')">Daftar</button>
-
-    <div id="login-form" class="form-box">
-        <h4>Login</h4>
-        <form>
-            <label>Email:</label>
-            <input type="email" required>
-            <label>Password:</label>
-            <input type="password" required>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <div id="register-form" class="form-box">
-        <h4>Daftar</h4>
-        <form>
-            <label>First Name:</label>
-            <input type="text" required>
-            <label>Last Name:</label>
-            <input type="text" required>
-            <label>Email:</label>
-            <input type="email" required>
-            <label>No. Telepon:</label>
-            <input type="tel" required>
-            <label>Password:</label>
-            <input type="password" required>
-            <label>Konfirmasi Password:</label>
-            <input type="password" required>
-            <button type="submit">Kirim</button>
-        </form>
+    <div class="hero-button">
+        <a href="#auth" class="btn" onclick="showSection('auth')">Login</a>
+        <a href="#auth" class="btn-outline" onclick="showSection('auth')">Daftar</a>
     </div>
 </section>
 
-<section id="about">
+<section id="auth" class="section form-section">
+    <h3>Login atau Daftar</h3>
+    <p>Pilih salah satu untuk melanjutkan:</p>
+    <div class="form-container">
+        <div class="form-box" id="login-form">
+            <h4>Sudah punya akun? Login</h4>
+            <form>
+                <label>Email:</label>
+                <input type="email" required>
+                <label>Password:</label>
+                <input type="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="form-box" id="register-form" style="display: none;">
+            <h4>Belum punya akun? Daftar</h4>
+            <form>
+                <label>First Name:</label>
+                <input type="text" required>
+                <label>Last Name:</label>
+                <input type="text" required>
+                <label>Email:</label>
+                <input type="email" required>
+                <label>No. Telepon:</label>
+                <input type="tel" required>
+                <label>Password:</label>
+                <input type="password" required>
+                <label>Konfirmasi Password:</label>
+                <input type="password" required>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
+    </div>
+    <p style="text-align: center; margin-top: 20px;">
+        <a href="#" onclick="showLogin()">Login</a> | 
+        <a href="#" onclick="showRegister()">Daftar</a>
+    </p>
+</section>
+
+<section id="about" class="section">
     <h3>About Owner</h3>
     <p>Mengenal lebih dekat pemilik Nanaribrary.</p>
-
-    <ul>
+    <ul class="b">
         <li><a href="https://www.instagram.com/nasywwaa_nap27/" target="_blank">My Social Media</a></li>
         <li><a href="https://sites.google.com/view/nasywaonlineportfolio/whos-nap" target="_blank">My Portfolio</a></li>
     </ul>
-
     <h4>🌿 The Process</h4>
-
     <video width="320" controls>
         <source src="video-saya.mp4" type="video/mp4">
     </video>
-
     <p>Musik yang menemani proses belajar dan berkarya.</p>
-
     <audio controls>
         <source src="audio-saya.mp3" type="audio/mpeg">
     </audio>
 </section>
 
-<div class="contact-divider"></div>
+<div class="divider"></div>
 
-<section id="contact" class="form-section">
+<section id="contact" class="section form-section">
     <h3>Contact Us</h3>
     <form>
         <label>Email Anda:</label>
@@ -264,6 +351,36 @@ function showSection(sectionId){
     <p>WhatsApp: +62 821-6612-1137</p>
     <p>© 2026 Nanaribrary. All Rights Reserved.</p>
 </footer>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section, .hero').forEach(sec => {
+        sec.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+    document.getElementById('sidebar').classList.remove('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+}
+
+function showLogin() {
+    document.getElementById('login-form').style.display = 'block';
+    document.getElementById('register-form').style.display = 'none';
+}
+
+function showRegister() {
+    document.getElementById('login-form').style.display = 'none';
+    document.getElementById('register-form').style.display = 'block';
+}
+
+// Default tampilkan hero
+document.addEventListener('DOMContentLoaded', () => {
+    showSection('hero');
+});
+</script>
 
 </body>
 </html>
