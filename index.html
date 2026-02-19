@@ -2,126 +2,267 @@
 <html>
 <head>
 <title>Nanaribrary</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FEEAC9;
+}
+
+.hero-banner {
+    background-color: #FFCDC9;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.top-nav {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.top-nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.search-box {
+    position: absolute;
+    top: 15px;
+    right: 300px;
+}
+
+.search-box input {
+    padding: 5px;
+}
+
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    background-color: #FFCDC9;
+    padding-top: 100px;
+}
+
+.side-nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.side-nav a:hover {
+    background-color: #FEEAC9;
+}
+
+.hero {
+    padding: 40px;
+    text-align: center;
+    margin-left: 170px;
+}
+
+.hero-button a {
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.btn {
+    background-color: #FFCDC9;
+}
+
+.btn-outline {
+    border: 2px solid #FFCDC9;
+}
+
+.form-section {
+    padding: 40px;
+    margin-left: 170px;
+}
+
+.form-container {
+    display: flex;
+    gap: 50px;
+}
+
+.form-box {
+    background-color: #FFCDC9;
+    padding: 20px;
+    width: 300px;
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#about {
+    display: none;
+    padding: 40px;
+    margin-left: 170px;
+}
+
+#auth {
+    display: none;
+}
+
+#login-form, #register-form {
+    display: none;
+}
+
+.contact-divider {
+    border-top: 3px solid #FFCDC9;
+    margin: 40px 170px;
+}
+
+footer {
+    background-color: #FFCDC9;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+
+<script>
+function showAuth(type) {
+    document.getElementById("auth").style.display = "block";
+    document.getElementById("login-form").style.display = "none";
+    document.getElementById("register-form").style.display = "none";
+
+    if(type === "login"){
+        document.getElementById("login-form").style.display = "block";
+    } else {
+        document.getElementById("register-form").style.display = "block";
+    }
+}
+
+function showSection(sectionId){
+    document.getElementById("about").style.display = "none";
+    document.getElementById("auth").style.display = "none";
+    document.getElementById(sectionId).style.display = "block";
+}
+</script>
+
 </head>
 <body>
 
+<div class="side-nav">
+    <a href="#" target="_blank">Home</a>
+    <a href="#" onclick="showSection('about')" target="_blank">About Owner</a>
+    <a href="#" onclick="showAuth('login')" target="_blank">Login/Daftar</a>
+    <a href="#contact" target="_blank">Contact Us</a>
+</div>
+
 <header class="hero-banner">
 
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+    </div>
+
     <nav class="top-nav">
-        <a href="#auth">Login/Daftar</a>
-        <a href="#about">About Owner</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#" onclick="showAuth('login')" target="_blank">Login/Daftar</a>
+        <a href="#" onclick="showSection('about')" target="_blank">About Owner</a>
+        <a href="#contact" target="_blank">Contact Us</a>
     </nav>
 
-	<h1>Nanaribrary</h1>
-	<p>Ruang Aman dan Reflektif untuk Belajar</p>
+    <h1>Nanaribrary</h1>
+    <p>Ruang Aman dan Reflektif untuk Belajar</p>
 
 </header>
 
 <section class="hero">
-	<h2>Selamat Datang di Nanaribrary 🚀</h2>
-	<p>
-		Nanaribrary hadir sebagai ruang literasi dan pengetahuan 
-		yang inklusif, tenang, serta mendukung kesejahteraan intelektual
-		dan psikologis penggunanya.
-	</p>
-
-	<div class="hero-button">
-		<a href="#auth" class="btn">Login</a>
-		<a href="#auth" class="btn-outline">Daftar</a>
-	</div>
+    <h2>Selamat Datang di Nanaribrary 🚀</h2>
+    <p>
+        Nanaribrary hadir sebagai ruang literasi dan pengetahuan 
+        yang inklusif, tenang, serta mendukung kesejahteraan intelektual
+        dan psikologis penggunanya.
+    </p>
 </section>
 
 <section id="auth" class="form-section">
-	<h3>Login atau Daftar</h3>
+    <h3>Pilih Akses</h3>
+    <button onclick="showAuth('login')">Login</button>
+    <button onclick="showAuth('register')">Daftar</button>
 
-	<div class="form-container">
+    <div id="login-form" class="form-box">
+        <h4>Login</h4>
+        <form>
+            <label>Email:</label>
+            <input type="email" required>
+            <label>Password:</label>
+            <input type="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 
-		<div class="form-box">
-			<h4>Sudah punya akun? Login</h4>
-			<form>
-				<label>Email:</label>
-				<input type="email" required>
-
-				<label>Password:</label>
-				<input type="password" required>
-
-				<button type="submit">Login</button>
-			</form>
-		</div>
-
-		<div class="form-box">
-			<h4>Belum punya akun? Daftar</h4>
-			<form>
-				<label>First Name:</label>
-				<input type="text" required>
-
-				<label>Last Name:</label>
-				<input type="text" required>
-
-				<label>Email:</label>
-				<input type="email" required>
-
-				<label>No. Telepon:</label>
-				<input type="tel" required>
-
-				<label>Password:</label>
-				<input type="password" required>
-
-				<label>Konfirmasi Password:</label>
-				<input type="password" required>
-
-				<button type="submit">Kirim</button>
-			</form>
-		</div>
-
-	</div>
+    <div id="register-form" class="form-box">
+        <h4>Daftar</h4>
+        <form>
+            <label>First Name:</label>
+            <input type="text" required>
+            <label>Last Name:</label>
+            <input type="text" required>
+            <label>Email:</label>
+            <input type="email" required>
+            <label>No. Telepon:</label>
+            <input type="tel" required>
+            <label>Password:</label>
+            <input type="password" required>
+            <label>Konfirmasi Password:</label>
+            <input type="password" required>
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
 </section>
 
 <section id="about">
-	<h3>About Owner</h3>
-	<p>Mengenal lebih dekat pemilik Nanaribrary.</p>
+    <h3>About Owner</h3>
+    <p>Mengenal lebih dekat pemilik Nanaribrary.</p>
 
-	<ul class="b">
-		<li><a href="https://www.instagram.com/nasywwaa_nap27/" target="_blank">My Social Media</a></li>
-		<li><a href="https://sites.google.com/view/nasywaonlineportfolio/whos-nap" target="_blank">My Portfolio</a></li>
-	</ul>
+    <ul>
+        <li><a href="https://www.instagram.com/nasywwaa_nap27/" target="_blank">My Social Media</a></li>
+        <li><a href="https://sites.google.com/view/nasywaonlineportfolio/whos-nap" target="_blank">My Portfolio</a></li>
+    </ul>
 
-	<h4>🌿 The Process</h4>
+    <h4>🌿 The Process</h4>
 
-	<video width="320" controls>
-		<source src="video-saya.mp4" type="video/mp4">
-	</video>
+    <video width="320" controls>
+        <source src="video-saya.mp4" type="video/mp4">
+    </video>
 
-	<p>Musik yang menemani proses belajar dan berkarya.</p>
+    <p>Musik yang menemani proses belajar dan berkarya.</p>
 
-	<audio controls>
-		<source src="audio-saya.mp3" type="audio/mpeg">
-	</audio>
+    <audio controls>
+        <source src="audio-saya.mp3" type="audio/mpeg">
+    </audio>
 </section>
 
+<div class="contact-divider"></div>
+
 <section id="contact" class="form-section">
-	<h3>Contact Us</h3>
-	<form>
-		<label>Email Anda:</label>
-		<input type="email" required>
-
-		<label>No. Telepon:</label>
-		<input type="tel" required>
-
-		<label>Pesan Anda:</label>
-		<textarea rows="4" required></textarea>
-
-		<button type="submit">Kirim</button>
-	</form>
+    <h3>Contact Us</h3>
+    <form>
+        <label>Email Anda:</label>
+        <input type="email" required>
+        <label>No. Telepon:</label>
+        <input type="tel" required>
+        <label>Pesan Anda:</label>
+        <textarea rows="4" required></textarea>
+        <button type="submit">Kirim</button>
+    </form>
 </section>
 
 <footer>
-  	<p>Let’s connect.</p>
-	<p>Email: nasywaanditaputri04@gmail.com</p>
-	<p>WhatsApp: +62 821-6612-1137</p>
-  	<p>© 2026 Nanaribrary. All Rights Reserved.</p>
+    <p>Let’s connect.</p>
+    <p>Email: nasywaanditaputri04@gmail.com</p>
+    <p>WhatsApp: +62 821-6612-1137</p>
+    <p>© 2026 Nanaribrary. All Rights Reserved.</p>
 </footer>
 
 </body>
