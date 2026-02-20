@@ -17,8 +17,27 @@ body {
     text-align: center;
     color: white;
     position: relative;
+    overflow: hidden;
 }
 
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* tingkat gelap bisa diubah */
+    z-index: 1;
+}
+
+.hero-banner h1,
+.hero-banner p,
+.top-nav {
+    position: relative;
+    z-index: 2;
+}
+    
 /* TOP NAV */
 .top-nav {
     position: absolute;
@@ -250,7 +269,7 @@ function openAbout() {
         <p>Musik yang menemani proses belajar dan berkarya.</p>
 
         <audio controls>
-        <source src="audio-saya.mp3" type="audio/mpeg">
+        <source src="audio-saya.mp3" type="audio/mp3">
         </audio>
 
         </body>
