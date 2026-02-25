@@ -10,7 +10,7 @@
 <!-- SIDE NAV -->
 <div class="side-nav">
     <a onclick="openLogin()">Login / Daftar</a>
-    <a onclick="openAbout()">About Owner</a>
+    <a onclick="openAbout()">Admin</a>
     <a onclick="openContact()">Contact Us</a>
 </div>
 
@@ -20,7 +20,7 @@
 
     <nav class="top-nav">
         <a onclick="openLogin()">Login/Daftar</a>
-        <a onclick="openAbout()">About Owner</a>
+        <a onclick="openAbout()">Admin</a>
         <a onclick="openContact()">Contact Us</a>
 
         <span class="search-box">
@@ -138,18 +138,18 @@ function openLogin() {
     `);
 }
 
-function openAbout() {
+function openAdmin() {
     let newTab = window.open("", "_blank");
     newTab.document.write(`
         <html>
         <head>
-        <title>About Owner</title>
+        <title>Admin</title>
         <style>
         body { font-family: Arial; background:#FEEAC9; padding:40px; }
         </style>
         </head>
         <body>
-        <h2>About Owner</h2>
+        <h2>Admin</h2>
         <p>Mengenal lebih dekat pemilik Nanaribrary.</p>
 
         <ul>
