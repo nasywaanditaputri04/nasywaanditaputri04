@@ -113,6 +113,8 @@ button:hover {
 
 footer {
     background-color: #205A28;
-    padding: 20px;
+    padding: 30px;
     text-align: center;
+    border-top: 2px solid #205A28;
+    color: #FFFFFF;
 }
