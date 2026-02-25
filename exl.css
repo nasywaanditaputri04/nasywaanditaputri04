@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #FEEAC9;
+    background-color: #FFFFFF;
 }
 
 /* HERO BANNER */
@@ -42,7 +42,7 @@ body {
 .top-nav a {
     margin-left: 15px;
     text-decoration: none;
-    color: white;
+    color: #205A28; 
     font-weight: bold;
     cursor: pointer;
 }
@@ -64,20 +64,22 @@ body {
     top: 0;
     width: 180px;
     height: 100%;
-    background-color: #FFCDC9;
+    background-color:  #FFFFFF;
     padding-top: 60px;
+    border-right: 2px solid #205A28;
 }
 
 .side-nav a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: black;
+    color: #205A28; 
+    font-weight: bold;
     cursor: pointer;
 }
 
 .side-nav a:hover {
-    background-color: #FEEAC9;
+    background-color: #F5F5F5;
 }
 
 .content {
@@ -87,11 +89,26 @@ body {
 .hero {
     padding: 40px;
     text-align: center;
+    color: #205A28;
 }
 
 hr {
-    border: 2px solid #FFCDC9;
+    border: 2px solid #205A28;
     width: 80%;
+}
+
+/* BUTTON STYLE */
+button {
+    background-color: #C72B32; /* Merah */
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.85;
 }
 
 footer {
