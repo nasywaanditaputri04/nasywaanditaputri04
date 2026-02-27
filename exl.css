@@ -9,7 +9,7 @@ body {
 ========================= */
 .hero-banner {
     background: url('library.jpeg') no-repeat center center/cover;
-    padding: 140px 20px; /* lebih besar */
+    padding: 100px 20px; /* lebih besar */
     text-align: center;
     color: white;
     position: relative;
@@ -159,7 +159,7 @@ button:hover {
 ========================= */
 footer {
     background-color: #205A28;
-    padding: 80px; /* lebih besar */
+    padding: 60px; /* lebih besar */
     text-align: center;
     color: white;
     font-size: 14px;
