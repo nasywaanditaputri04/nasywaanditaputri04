@@ -3,7 +3,7 @@
 <head>
 <title>Nanaribrary</title>
 <link rel="stylesheet" tyle="text/css" href="exl.css">
-<meta name="viewport" contect="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
     
 <body>
@@ -19,7 +19,7 @@
     <a onclick="openKoleksi()">Koleksi</a>
     <a onclick="openKegiatan()">Kegiatan & Berita</a>
     <a onclick="openAdmin()">Admin</a>
-    <a onclick="openContact()">Kontak & Umpan Balik</a>
+    <a onclick="openKontak()">Kontak & Umpan Balik</a>
     <a onclick="openLogin()">Login</a>
 </div>
 
@@ -136,13 +136,49 @@ function openPage(title, content){
         background:rgba(0,0,0,0.6);
     }
     .hero h1{position:relative;z-index:2;}
+
+    .top-nav{
+        position:absolute;
+        top:15px;
+        right:20px;
+        z-index:3;
+    }
+
+    .top-nav a{
+        margin-left:15px;
+        text-decoration:none;
+        color:white;
+        font-weight:bold;
+        font-size:14px;
+        cursor:pointer;
+    }
+    
     section{padding:40px;}
-    footer{background:#205A28;color:white;padding:60px;text-align:center;}
+    footer{
+        background:#205A28;
+        color:white;
+        padding:60px;
+        text-align:center;
+    }
     </style>
     </head>
     <body>
-    <div class="hero"><h1>${title}</h1></div>
+
+    <div class="hero">
+            <nav class="top-nav">
+                <a onclick="window.opener.openProfil()">Profil</a>
+                <a onclick="window.opener.openLayanan()">Layanan</a>
+                <a onclick="window.opener.openStruktur()">Struktur</a>
+                <a onclick="window.opener.openKoleksi()">Koleksi</a>
+                <a onclick="window.opener.openKegiatan()">Kegiatan</a>
+                <a onclick="window.opener.openAdmin()">Admin</a>
+                <a onclick="window.opener.openKontak()">Kontak</a>
+            </nav>
+            <h1>${title}</h1>
+        </div>
+
     <section>${content}</section>
+    
     <footer>
     <p>Let’s connect.</p>
     <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
