@@ -3,15 +3,24 @@
 <head>
 <title>Nanaribrary</title>
 <link rel="stylesheet" tyle="text/css" href="exl.css">
+<meta name="viewport" contect="width=device-width, initial-scale=1.0">
 </head>
     
 <body>
 
+<!-- HAMBURGER BUTTON -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 <!-- SIDE NAV -->
-<div class="side-nav">
-    <a onclick="openLogin()">Login / Daftar</a>
+<div class="side-nav" id="sideNav">
+    <a href="#">Beranda</a>
+    <a onclick="openProfil()">Profil Perpustakaan</a>
+    <a onclick="openLayanan()">Layanan</a>
+    <a onclick="openStruktur()">Struktur Organisasi</a>
+    <a onclick="openKoleksi()">Koleksi</a>
+    <a onclick="openKegiatan()">Kegiatan & Berita</a>
     <a onclick="openAdmin()">Admin</a>
-    <a onclick="openContact()">Contact Us</a>
+    <a onclick="openContact()">Kontak & Umpan Balik</a>
+    <a onclick="openLogin()">Login</a>
 </div>
 
 <div class="content">
@@ -19,9 +28,15 @@
 <header class="hero-banner">
 
     <nav class="top-nav">
-        <a onclick="openLogin()">Login/Daftar</a>
+        <a href="#">Beranda</a>
+        <a onclick="openProfil()">Profil Perpustakaan</a>
+        <a onclick="openLayanan()">Layanan</a>
+        <a onclick="openStruktur()">Struktur Organisasi</a>
+        <a onclick="openKoleksi()">Koleksi</a>
+        <a onclick="openKegiatan()">Kegiatan & Berita</a>
         <a onclick="openAdmin()">Admin</a>
-        <a onclick="openContact()">Contact Us</a>
+        <a onclick="openContact()">Kontak & Umpan Balik</a>
+        <a onclick="openLogin()">Login</a>
 
         <span class="search-box">
             <input type="text" placeholder="Search...">
@@ -41,6 +56,23 @@
         dan inovatif. Kami berkomitmen membangun masyarakat berdaya melalui budaya literasi
         yang berkelanjutan.
     </p>
+
+<hr>
+    
+    <h2>Informasi Terbaru</h2>
+    <p>📢 Program Literasi Digital 2026 telah dibuka untuk umum.</p>
+    <p>📚 Koleksi terbaru buku pengembangan diri telah tersedia.</p>
+
+<hr>
+        
+    <h2>Akses Cepat</h2>
+    <ul>
+    <li>Pendaftaran Anggota</li>
+    <li>Peminjaman Buku</li>
+    <li>Katalog Online</li>
+    <li>Layanan Referensi</li>
+    </ul>
+    
 </section>
 
 <hr>
@@ -65,91 +97,140 @@
     <p>Let’s connect.</p>
     <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
     <p>WhatsApp: +62 821-6612-1137</p>
-    <p>© 2026 PerpustakaanCakrawala Literasi.</p>
+    <p>© 2026 Perpustakaan Cakrawala Literasi.</p>
 </footer>
 
 </div>
 
 <script>
 
-function openLogin() {
+function toggleMenu() {
+    let nav = document.getElementById("sideNav");
+    if (nav.style.left === "0px") {
+        nav.style.left = "-250px";
+    } else {
+        nav.style.left = "0px";
+    }
+}
+
+function openPage(title, content){
     let newTab = window.open("", "_blank");
     newTab.document.write(`
-        <html>
-        <head>
-        <title>Login / Daftar</title>
-        <style>
-        body { 
-            font-family: Arial; 
-            background:#FEEAC9; 
-            padding:40px; 
-            text-align:center;
-        }
-        .box { 
-            background:#FFCDC9; 
-            padding:20px; 
-            margin:20px auto; 
-            width:300px; 
-            display:none;
-        }
-        button {
-            padding:8px 15px;
-            margin:10px;
-            cursor:pointer;
-        }
-        </style>
-        </head>
-        <body>
+    <html>
+    <head>
+    <title>${title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body{margin:0;font-family:Arial;}
+    .hero{
+        background:url('library.jpeg') no-repeat center center/cover;
+        padding:100px 20px;
+        text-align:center;
+        color:white;
+        position:relative;
+    }
+    .hero::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:rgba(0,0,0,0.6);
+    }
+    .hero h1{position:relative;z-index:2;}
+    section{padding:40px;}
+    footer{background:#205A28;color:white;padding:60px;text-align:center;}
+    </style>
+    </head>
+    <body>
+    <div class="hero"><h1>${title}</h1></div>
+    <section>${content}</section>
+    <footer>© 2026 Perpustakaan Cakrawala Literasi</footer>
+    </body>
+    </html>
+    `);
+}
+    
+function openProfil(){
+    openPage("Profil Perpustakaan", `
 
-        <h2>Silakan Pilih</h2>
+        <h2>Visi</h2>
+        <p>Menjadi pusat literasi publik yang inklusif, inovatif, dan berorientasi 
+        pada pengembangan wawasan serta kesejahteraan intelektual masyarakat.</p>
 
-        <button onclick="showLogin()">Login</button>
-        <button onclick="showRegister()">Daftar</button>
+        <h2>Misi</h2>
+        <ul>
+            <li>Menyediakan akses informasi yang akurat, relevan, dan berkualitas.</li>
+            <li>Mendorong budaya membaca dan pembelajaran sepanjangan hayat.</li>
+            <li>Mengembangkan layanan literasi berbasisi teknologi digital.</li>
+            <li>Mewujudkan ruang belajar yang aman, reflektif, dan inklusif.</li>
+            <li>Mendukung peningkatan kapasitas masyarakat melalui program edukatif.</li>
+        </ul>
 
-        <div class="box" id="loginBox">
-            <h3>Login</h3>
-            <input type="email" placeholder="Email"><br><br>
-            <input type="password" placeholder="Password"><br><br>
-            <button>Masuk</button>
-        </div>
+        <h2>Sejarah</h2>
+        <p>Didirikan tahun 2026 sebagai ruang literasi publik berbasis inovasi.</p>
 
-        <div class="box" id="registerBox">
-            <h3>Daftar</h3>
-            <input type="text" placeholder="First Name"><br><br>
-            <input type="text" placeholder="Last Name"><br><br>
-            <input type="email" placeholder="Email"><br><br>
-            <input type="tel" placeholder="No Telepon"><br><br>
-            <input type="password" placeholder="Password"><br><br>
-            <button>Kirim</button>
-        </div>
-
-        <script>
-        function showLogin(){
-            document.getElementById("loginBox").style.display="block";
-            document.getElementById("registerBox").style.display="none";
-        }
-        function showRegister(){
-            document.getElementById("registerBox").style.display="block";
-            document.getElementById("loginBox").style.display="none";
-        }
-        <\/script>
-
-        </body>
-        </html>
+        <h2>Informasi Kelembagaan</h2>
+        <p>Bernaung di bawah yayasan literasi independen dan terbuka untuk masyarakat umum.</p>
     `);
 }
 
+function openLayanan(){
+openPage("Layanan Perpustakaan", `
+    <h2>Prosedur Keanggotaan</h2>
+    <p>Daftar secara online atau langsung di lokasi dengan membawa identitas resmi.</p>
+    
+    <h2>Layanan Peminjaman</h2>
+    <p>Maksimal 3 buku selama 7 hari.</p>
+    
+    <h2>Layanan Referensi</h2>
+    <p>Bantuan pencarian sumber ilmiah dan referensi akademik.</p>
+    
+    <h2>Layanan Literasi</h2>
+    <p>Workshop, seminar, kelas membaca, dan literasi digital.</p>
+`);
+}
+
+function openStruktur(){
+    openPage("Struktur Organisasi", `
+    <ul>
+    <li>Kepala Perpustakaan</li>
+    <li>Sekretaris</li>
+    <li>Koordinator Layanan</li>
+    <li>Koordinator Koleksi</li>
+    <li>Koordinator Literasi & Program</li>
+    <li>IT & Digital Library</li>
+    <li>Administrasi & Keuangan</li>
+    </ul>
+`);
+}
+
+function openKoleksi(){
+    openPage("Koleksi", `
+    <h2>Jenis Koleksi</h2>
+    <ul>
+    <li>Buku Fiksi</li>
+    <li>Buku Non-Fiksi</li>
+    <li>Buku Akademik</li>
+    <li>E-book</li>
+    <li>Jurnal Digital</li>
+    </ul>
+    
+    <h2>Pencarian Katalog</h2>
+    <input type="text" placeholder="Cari Judul Buku..." style="padding:8px;width:250px;">
+    <button>Cari</button>
+`);
+}
+
+function openKegiatan(){
+    openPage("Kegiatan & Berita", `
+    <p>📅 Seminar Literasi Nasional 2026</p>
+    <p>📚 Bedah Buku & Diskusi Publik</p>
+    <p>💻 Workshop Digital Library</p>
+    <p>📖 Program Donasi Buku untuk Masyarakat</p>
+`);
+}
+    
 function openAdmin() {
-    let newTab = window.open("", "_blank");
-    newTab.document.write(`
-        <html>
-        <head>
-        <title>Admin</title>
-        <style>
-        body { font-family: Arial; background:#FEEAC9; padding:40px; }
-        </style>
-        </head>
-        <body>
+    openPage("Admin", `
         <h2>Admin</h2>
         <p>Mengenal lebih dekat pemilik Nanaribrary.</p>
 
@@ -158,7 +239,7 @@ function openAdmin() {
         <li><a href="https://sites.google.com/view/nasywaonlineportfolio/whos-nap" target="_blank">My Portfolio</a></li>
         </ul>
 
-        <h3>The Process</h3>
+        <h2>The Process</h2>
 
         <video width="320" controls>
         <source src="video-saya.mp4" type="video/mp4">
@@ -169,35 +250,97 @@ function openAdmin() {
         <audio controls>
         <source src="audio-saya.mp3" type="audio/mp3">
         </audio>
-
-        </body>
-        </html>
     `);
 }
 
-function openContact() {
+function openKontak() {
+    openPage("Kontak & Umpan Balik", `
+    <h2>Kontak Resmi</h2>
+    <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
+    <p>WhatsApp: +62 821-6612-1137</p>
+    
+    <h2>Form Umpan Balik</h2>
+    <form>
+    <label>Email:</label><br>
+    <input type="email" required><br><br>
+    <label>No Telepon:</label><br>
+    <input type="tel" required><br><br>
+    <label>Pesan:</label><br>
+    <textarea rows="4" style="width:100%;max-width:400px;"></textarea><br><br>
+    <button>Kirim</button>
+    </form>
+`);
+}
+
+function openLogin() {
     let newTab = window.open("", "_blank");
     newTab.document.write(`
-        <html>
-        <head>
-        <title>Contact Us</title>
-        <style>
-        body { font-family: Arial; background:#FEEAC9; padding:40px; }
-        </style>
-        </head>
-        <body>
-        <h2>Contact Us</h2>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+    body{
+        margin:0;
+        font-family:Arial;
+        background:url('library.jpeg') no-repeat center center/cover;
+        padding:120px 20px;
+        text-align:center;
+        color:white;
+    }
+    .box{
+        background:rgba(0,0,0,0.7);
+        padding:30px;
+        max-width:350px;
+        margin:auto;
+    }
+    input{
+        width:100%;
+        padding:8px;
+        margin:10px 0;
+    }
+    button{
+        padding:8px 15px;
+        background:#C72B32;
+        color:white;
+        border:none;
+        cursor:pointer;
+    }
+    a{color:#FEEAC9;cursor:pointer;}
+    </style>
+    </head>
+    <body>
 
-        <input type="email" placeholder="Email Anda"><br><br>
-        <input type="tel" placeholder="No Telepon"><br><br>
-        <textarea rows="4" placeholder="Pesan Anda"></textarea><br><br>
+    <div class="box" id="loginBox">
+        <h2>Login</h2>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button>Masuk</button>
+        <p>Belum punya akun? <a onclick="showRegister()">Daftar</a></p>
+    </div>
+
+    <div class="box" id="registerBox" style="display:none;">
+        <h2>Daftar</h2>
+        <input type="text" placeholder="Nama Depan">
+        <input type="text" placeholder="Nama Belakang">
+        <input type="email" placeholder="Email">
+        <input type="tel" placeholder="No Telepon">
+        <input type="password" placeholder="Password">
         <button>Kirim</button>
+    </div>
 
-        </body>
-        </html>
+    <script>
+    function showRegister(){
+        document.getElementById("loginBox").style.display="none";
+        document.getElementById("registerBox").style.display="block";
+    }
+    <\/script>
+
+    </body>
+    </html>
     `);
 }
-
+    
 </script>
 
 </body>
