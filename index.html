@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Nanaribrary</title>
-<link rel="stylesheet" tyle="text/css" href="exl.css">
+<link rel="stylesheet" type="text/css" href="exl.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
     
@@ -35,7 +35,7 @@
         <a onclick="openKoleksi()">Koleksi</a>
         <a onclick="openKegiatan()">Kegiatan & Berita</a>
         <a onclick="openAdmin()">Admin</a>
-        <a onclick="openContact()">Kontak & Umpan Balik</a>
+        <a onclick="openKontak()">Kontak & Umpan Balik</a>
         <a onclick="openLogin()">Login</a>
 
         <span class="search-box">
@@ -44,7 +44,7 @@
     </nav>
 
     <h1>PERPUSTAKAAN CAKRAWALA LITERASI</h1>
-    <p><i>Membuka Cakrawala Pengetahuan, Memabangun Generasi Berdaya</i></p>
+    <p><i>Membuka Cakrawala Pengetahuan, Membangun Generasi Berdaya</i></p>
 
 </header>
 
@@ -166,6 +166,7 @@ function openPage(title, content){
 
     <div class="hero">
             <nav class="top-nav">
+                <a href="#">Beranda</a>
                 <a onclick="window.opener.openProfil()">Profil</a>
                 <a onclick="window.opener.openLayanan()">Layanan</a>
                 <a onclick="window.opener.openStruktur()">Struktur</a>
@@ -185,6 +186,17 @@ function openPage(title, content){
     <p>WhatsApp: +62 821-6612-1137</p>
     <p>© 2026 Perpustakaan Cakrawala Literasi.</p>
     </footer>
+
+    <script>
+        ${openProfil.toString()}
+        ${openLayanan.toString()}
+        ${openStruktur.toString()}
+        ${openKoleksi.toString()}
+        ${openKegiatan.toString()}
+        ${openAdmin.toString()}
+        ${openKontak.toString()}
+    <\/script>
+    
     </body>
     </html>
     `);
