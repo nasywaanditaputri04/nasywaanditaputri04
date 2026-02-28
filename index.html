@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF=8">
 <title>Nanaribrary</title>
 <link rel="stylesheet" type="text/css" href="exl.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
 
 <!-- HAMBURGER BUTTON -->
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
 <!-- SIDE NAV -->
 <div class="side-nav" id="sideNav">
     <a href="#">Beranda</a>
@@ -20,13 +22,12 @@
     <a onclick="openKegiatan()">Kegiatan & Berita</a>
     <a onclick="openAdmin()">Admin</a>
     <a onclick="openKontak()">Kontak & Umpan Balik</a>
-    <a onclick="openLogin()">Login</a>
+    <a onclick="handleLogin()" id="loginText">Login</a>
 </div>
 
 <div class="content">
 
 <header class="hero-banner">
-
     <nav class="top-nav">
         <a href="#">Beranda</a>
         <a onclick="openProfil()">Profil Perpustakaan</a>
@@ -36,18 +37,22 @@
         <a onclick="openKegiatan()">Kegiatan & Berita</a>
         <a onclick="openAdmin()">Admin</a>
         <a onclick="openKontak()">Kontak & Umpan Balik</a>
-        <a onclick="openLogin()">Login</a>
+        <a onclick="handleLogin()" id="loginNav">Login</a>
 
-        <span class="search-box">
-            <input type="text" placeholder="Search...">
-        </span>
+        <span class="search-icon" onclick="toggleSearch()">🔍</span>
+        <div class="search-box" id="searchBox">
+            <input type="text" placeholder="Cari Buku">
+        </div>
     </nav>
 
     <h1>PERPUSTAKAAN CAKRAWALA LITERASI</h1>
     <p><i>Membuka Cakrawala Pengetahuan, Membangun Generasi Berdaya</i></p>
-
 </header>
 
+<section id="mainContent" class="main-section">
+    <!-- Konten berubah di sini -->
+</section>
+    
 <section class="hero">
     <h2>Selamat Datang di Perpustakaan Cakrawala Literasi 🚀</h2>
     <p>
@@ -104,6 +109,28 @@
 
 <script>
 
+let isLoggedIn = false;
+
+function handleLogin(){
+    if(isLoggedIn){
+        isLoggedIn = false;
+        document.getElementById("loginNav").innerText="Login";
+        document.getElementById("loginText").innerText="Login";
+        alert("Logout Berhasil");
+    } else {
+        openLogin();
+    }
+}
+
+function toggleMenu(){
+    document.body.classList.toggle("menu-open");
+}
+
+function toggleSearch(){
+    let box = document.getElementById("searchBox");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+    
 function toggleMenu() {
     let nav = document.getElementById("sideNav");
     if (nav.style.left === "0px") {
@@ -119,52 +146,12 @@ function openPage(title, content){
     <html>
     <head>
     <title>${title}</title>
+    <link rel="stylesheet" href="exl.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    body{margin:0;font-family:Arial;}
-    .hero{
-        background:url('library.jpeg') no-repeat center center/cover;
-        padding:100px 20px;
-        text-align:center;
-        color:white;
-        position:relative;
-    }
-    .hero::before{
-        content:"";
-        position:absolute;
-        inset:0;
-        background:rgba(0,0,0,0.6);
-    }
-    .hero h1{position:relative;z-index:2;}
-
-    .top-nav{
-        position:absolute;
-        top:15px;
-        right:20px;
-        z-index:3;
-    }
-
-    .top-nav a{
-        margin-left:15px;
-        text-decoration:none;
-        color:white;
-        font-weight:bold;
-        font-size:14px;
-        cursor:pointer;
-    }
-    
-    section{padding:40px;}
-    footer{
-        background:#205A28;
-        color:white;
-        padding:60px;
-        text-align:center;
-    }
-    </style>
     </head>
     <body>
-
-    <div class="hero">
+    
+    <header class="hero-banner">
             <nav class="top-nav">
                 <a href="#">Beranda</a>
                 <a onclick="window.opener.openProfil()">Profil</a>
@@ -174,6 +161,7 @@ function openPage(title, content){
                 <a onclick="window.opener.openKegiatan()">Kegiatan</a>
                 <a onclick="window.opener.openAdmin()">Admin</a>
                 <a onclick="window.opener.openKontak()">Kontak</a>
+                <a onclick="window.opener.handleLogin()">${isLoggedIn ? "Logout" : "Login"}</a>
             </nav>
             <h1>${title}</h1>
         </div>
@@ -186,19 +174,37 @@ function openPage(title, content){
     <p>WhatsApp: +62 821-6612-1137</p>
     <p>© 2026 Perpustakaan Cakrawala Literasi.</p>
     </footer>
-
-    <script>
-        ${openProfil.toString()}
-        ${openLayanan.toString()}
-        ${openStruktur.toString()}
-        ${openKoleksi.toString()}
-        ${openKegiatan.toString()}
-        ${openAdmin.toString()}
-        ${openKontak.toString()}
-    <\/script>
     
     </body>
     </html>
+    `);
+}
+
+function openBeranda(){
+openPage("Beranda", `
+<h2>Selamat Datang di Perpustakaan Cakrawala Literasi 🚀</h2>
+    <p>
+        Perpustakaan Cakrawala Literasi adalah ruang literasi publik yang menghadirkan
+        akses informasi, pembelajaran, dan refleksi dalam satu lingkungan yang inklusif
+        dan inovatif. Kami berkomitmen membangun masyarakat berdaya melalui budaya literasi
+        yang berkelanjutan.
+    </p>
+
+<hr>
+    
+    <h2>Informasi Terbaru</h2>
+        <p>📢 Program Literasi Digital 2026 telah dibuka untuk umum.</p>
+        <p>📚 Koleksi terbaru buku pengembangan diri telah tersedia.</p>
+
+<hr>
+        
+    <h2>Akses Cepat</h2>
+        <ul>
+        <li>Pendaftaran Anggota</li>
+        <li>Peminjaman Buku</li>
+        <li>Katalog Online</li>
+        <li>Layanan Referensi</li>
+        </ul>
     `);
 }
     
@@ -360,32 +366,90 @@ function openLogin() {
         cursor:pointer;
     }
     a{color:#FEEAC9;cursor:pointer;}
+
+    /* TEXT BERKEDIP */
+    @keyframes blink{
+        0%{opacity:1;}
+        50%{opacity:0;}
+        100%{opacity:1;}
+    }
+
+    .success{
+        color:lime;
+        animation:blink 1s infinite;
+        margin-top:10px;
+    }
     </style>
     </head>
     <body>
 
     <div class="box" id="loginBox">
         <h2>Login</h2>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPass" placeholder="Password" required>
         <button>Masuk</button>
+        <p id="loginMsg"></p>
         <p>Belum punya akun? <a onclick="showRegister()">Daftar</a></p>
     </div>
 
     <div class="box" id="registerBox" style="display:none;">
         <h2>Daftar</h2>
-        <input type="text" placeholder="Nama Depan">
-        <input type="text" placeholder="Nama Belakang">
-        <input type="email" placeholder="Email">
-        <input type="tel" placeholder="No Telepon">
-        <input type="password" placeholder="Password">
-        <button>Kirim</button>
+        input type="text" id="namaDepan" placeholder="Nama Depan" required>
+        <input type="text" id="namaBelakang" placeholder="Nama Belakang" required>
+        <input type="email" id="regEmail" placeholder="Email" required>
+        <input type="tel" id="regTelp" placeholder="No Telepon" required>
+        <input type="password" id="regPass" placeholder="Password" required>
+        <button onclick="register()">Kirim</button>
+        <p id="registerMsg"></p>
+        <p>Sudah punya akun? <a onclick="showLogin()">Login</a></p>
     </div>
 
     <script>
     function showRegister(){
         document.getElementById("loginBox").style.display="none";
         document.getElementById("registerBox").style.display="block";
+    }
+
+    function showLogin(){
+        document.getElementById("loginBox").style.display="block";
+        document.getElementById("registerBox").style.display="none";
+    }
+
+    function login(){
+        let email = document.getElementById("loginEmail").value;
+        let pass = document.getElementById("loginPass").value;
+
+        if(email !== "" && pass !== ""){
+            document.getElementById("loginMsg").innerHTML =
+            "<span class='success'>Login Berhasil!</span>";
+
+            // ubah menu di halaman utama
+            if(window.opener){
+                window.opener.isLoggedIn = true;
+
+                let nav1 = window.opener.document.getElementById("loginNav");
+                let nav2 = window.opener.document.getElementById("loginText");
+
+                if(nav1) nav1.innerText = "Logout";
+                if(nav2) nav2.innerText = "Logout";
+            }
+
+        } else {
+            alert("Harap isi semua data!");
+        }
+    }
+
+    function register(){
+        let nama = document.getElementById("namaDepan").value;
+        let email = document.getElementById("regEmail").value;
+        let pass = document.getElementById("regPass").value;
+
+        if(nama !== "" && email !== "" && pass !== ""){
+            document.getElementById("registerMsg").innerHTML =
+            "<span class='success'>Pendaftaran Berhasil!</span>";
+        } else {
+            alert("Harap isi semua data!");
+        }
     }
     <\/script>
 
