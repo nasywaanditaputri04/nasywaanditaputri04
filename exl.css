@@ -69,11 +69,18 @@ body {
 
 /* SEARCH BOX */
 .search-box {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 35px;
+    opacity:0;
+    transform:translateY(-10px);
+    transition:0.3s ease;
+    pointer-events:none;
 }
+
+.search-box.active{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+}
+
 .search-box input {
     padding: 5px;
     border-radius: 4px;
