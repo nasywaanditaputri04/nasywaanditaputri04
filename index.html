@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF=8">
+<meta charset="UTF-8">
 <title>Nanaribrary</title>
 <link rel="stylesheet" type="text/css" href="exl.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     
 <!-- SIDE NAV -->
 <div class="side-nav" id="sideNav">
-    <a href="#">Beranda</a>
+    <a onclick="openBeranda()">Beranda</a>
     <a onclick="openProfil()">Profil Perpustakaan</a>
     <a onclick="openLayanan()">Layanan</a>
     <a onclick="openStruktur()">Struktur Organisasi</a>
@@ -29,7 +29,7 @@
 
 <header class="hero-banner">
     <nav class="top-nav">
-        <a href="#">Beranda</a>
+        <a onclick="openBeranda()">Beranda</a>
         <a onclick="openProfil()">Profil Perpustakaan</a>
         <a onclick="openLayanan()">Layanan</a>
         <a onclick="openStruktur()">Struktur Organisasi</a>
@@ -48,10 +48,6 @@
     <h1>PERPUSTAKAAN CAKRAWALA LITERASI</h1>
     <p><i>Membuka Cakrawala Pengetahuan, Membangun Generasi Berdaya</i></p>
 </header>
-
-<section id="mainContent" class="main-section">
-    <!-- Konten berubah di sini -->
-</section>
     
 <section class="hero">
     <h2>Selamat Datang di Perpustakaan Cakrawala Literasi 🚀</h2>
@@ -127,17 +123,7 @@ function toggleMenu(){
 }
 
 function toggleSearch(){
-    let box = document.getElementById("searchBox");
-    box.style.display = box.style.display === "block" ? "none" : "block";
-}
-    
-function toggleMenu() {
-    let nav = document.getElementById("sideNav");
-    if (nav.style.left === "0px") {
-        nav.style.left = "-250px";
-    } else {
-        nav.style.left = "0px";
-    }
+    document.getElementById("searchBox").classList.toggle("active");
 }
 
 function openPage(title, content){
@@ -153,7 +139,7 @@ function openPage(title, content){
     
     <header class="hero-banner">
             <nav class="top-nav">
-                <a href="#">Beranda</a>
+                <a onclick="window.opener.openBeranda()">Beranda</a>
                 <a onclick="window.opener.openProfil()">Profil</a>
                 <a onclick="window.opener.openLayanan()">Layanan</a>
                 <a onclick="window.opener.openStruktur()">Struktur</a>
@@ -161,10 +147,10 @@ function openPage(title, content){
                 <a onclick="window.opener.openKegiatan()">Kegiatan</a>
                 <a onclick="window.opener.openAdmin()">Admin</a>
                 <a onclick="window.opener.openKontak()">Kontak</a>
-                <a onclick="window.opener.handleLogin()">${isLoggedIn ? "Logout" : "Login"}</a>
+                <a onclick="window.opener.handleLogin(); window.close();">${isLoggedIn ? "Logout" : "Login"}</a>
             </nav>
             <h1>${title}</h1>
-        </div>
+        </header>
 
     <section>${content}</section>
     
@@ -387,7 +373,7 @@ function openLogin() {
         <h2>Login</h2>
         <input type="email" id="loginEmail" placeholder="Email" required>
         <input type="password" id="loginPass" placeholder="Password" required>
-        <button>Masuk</button>
+        <button onclick="login()">Masuk</button>
         <p id="loginMsg"></p>
         <p>Belum punya akun? <a onclick="showRegister()">Daftar</a></p>
     </div>
@@ -423,7 +409,6 @@ function openLogin() {
             document.getElementById("loginMsg").innerHTML =
             "<span class='success'>Login Berhasil!</span>";
 
-            // ubah menu di halaman utama
             if(window.opener){
                 window.opener.isLoggedIn = true;
 
@@ -433,7 +418,10 @@ function openLogin() {
                 if(nav1) nav1.innerText = "Logout";
                 if(nav2) nav2.innerText = "Logout";
             }
-
+            setTimeout(function(){
+                    window.close();
+                },1500);
+                
         } else {
             alert("Harap isi semua data!");
         }
