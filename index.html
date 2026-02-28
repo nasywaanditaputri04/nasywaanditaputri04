@@ -147,7 +147,7 @@ function openPage(title, content){
                 <a onclick="window.opener.openKegiatan()">Kegiatan</a>
                 <a onclick="window.opener.openAdmin()">Admin</a>
                 <a onclick="window.opener.openKontak()">Kontak</a>
-                <a onclick="window.opener.handleLogin(); window.close();">${isLoggedIn ? "Logout" : "Login"}</a>
+                <a onclick="window.opener.handleLogin();setTimeout(()=>window.close(),200);">
             </nav>
             <h1>${title}</h1>
         </header>
@@ -164,6 +164,7 @@ function openPage(title, content){
     </body>
     </html>
     `);
+    newTab.document.close();
 }
 
 function openBeranda(){
