@@ -148,6 +148,8 @@ function openPage(title, content){
                 <a onclick="window.opener.openAdmin()">Admin</a>
                 <a onclick="window.opener.openKontak()">Kontak</a>
                 <a onclick="window.opener.handleLogin();setTimeout(()=>window.close(),200);">
+                    ${isLoggedIn ? "Logout" : "Login"}
+                </a>
             </nav>
             <h1>${title}</h1>
         </header>
