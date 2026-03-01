@@ -3,7 +3,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #FFFFFF;
     overflow-x: hidden;
-    transition: 0.3s ease;
 }
 
 /* =========================
@@ -11,7 +10,7 @@ body {
 ========================= */
 .hero-banner {
     background: url('library.jpeg') no-repeat center center/cover;
-    padding: 120px 20px; /* lebih besar */
+    padding: 100px 20px; 
     text-align: center;
     color: white;
     position: relative;
@@ -31,11 +30,12 @@ body {
 }
 
 .hero-banner h1 {
-    font-size: 32px;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
 .hero-banner p {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* =========================
@@ -49,11 +49,11 @@ body {
 }
 
 .top-nav a {
-    margin-left: 15px;
+    margin-left: 20px;
     text-decoration: none;
     color: #FFFFFF;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .top-nav a:hover {
@@ -64,27 +64,7 @@ body {
 .search-icon {
     margin-left: 15px;
     cursor: pointer;
-    font-size: 16px;
-}
-
-/* SEARCH BOX */
-.search-box {
-    opacity:0;
-    transform:translateY(-10px);
-    transition:0.3s ease;
-    pointer-events:none;
-}
-
-.search-box.active{
-    opacity:1;
-    transform:translateY(0);
-    pointer-events:auto;
-}
-
-.search-box input {
-    padding: 5px;
-    border-radius: 4px;
-    border: none;
+    font-size: 18px;
 }
 
 /* =========================
@@ -97,7 +77,7 @@ body {
     top: 15px;
     left: 20px;
     z-index: 1001;
-    color: #205A28;
+    color: #FFFFFF;
 }
 
 /* =========================
@@ -117,11 +97,10 @@ body {
 
 .side-nav a {
     display: block;
-    padding: 14px;
+    padding: 15px;
     text-decoration: none;
     color: #FFFFFF;
     font-weight: bold;
-    transition: 0.3s;
 }
 
 .side-nav a:hover {
@@ -132,7 +111,6 @@ body {
    CONTENT SHIFT
 ========================= */
 .content {
-    padding: 20px;
     transition: 0.4s ease;
 }
 
@@ -148,11 +126,14 @@ body.menu-open .content {
    SECTION
 ========================= */
 section {
-    padding: 50px 20px;
+    padding: 60px 20px;
+    font-size: 17px;
+    line-height: 1.8;
 }
 
 h2 {
     color: #205A28;
+    font-size: 24px;
 }
 
 /* HR */
@@ -168,22 +149,21 @@ hr {
 form input,
 form textarea {
     width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 4px;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 15px;
 }
 
 button {
     background-color: #C72B32;
     color: white;
     border: none;
-    padding: 8px 15px;
+    padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
     border-radius: 4px;
-    transition: 0.3s ease;
 }
 
 button:hover {
@@ -195,10 +175,17 @@ button:hover {
 ========================= */
 footer {
     background-color: #205A28;
-    padding: 120px 20px; 
+    padding: 40px 20px; 
     text-align: center;
     color: white;
     font-size: 14px;
+}
+footer iframe {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    border: none;
 }
 
 /* =========================
@@ -218,9 +205,12 @@ footer {
 /* =========================
    RESPONSIVE DESIGN
 ========================= */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .top-nav {
-        display: none; /* sembunyikan top nav di tablet */
+        display: none; 
+    }
+    .hero-banner h1 {
+        font-size: 26px;
     }
 }
 
