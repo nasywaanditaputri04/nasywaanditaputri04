@@ -39,10 +39,12 @@
         <a onclick="openKontak()">Kontak & Umpan Balik</a>
         <a onclick="handleLogin()" id="loginNav">Login</a>
 
-        <a href="#" class="search-icon">🔎</a>
+    <div class="search-wrapper">
+        <a href="javascript:void(0)" class="search-icon" onclick="toggleSearch()">🔍︎</a>
         <div class="search-box" id="searchBox">
             <input type="text" placeholder="Cari Buku">
         </div>
+    </div>
     </nav>
 
     <h1>PERPUSTAKAAN CAKRAWALA LITERASI</h1>
@@ -130,6 +132,10 @@ function handleLogin(){
     }
 }
 
+function toggleSearch(){
+    document.getElementById("searchBox").classList.toggle("active");
+}
+    
 function toggleMenu(){
     document.body.classList.toggle("menu-open");
 }
