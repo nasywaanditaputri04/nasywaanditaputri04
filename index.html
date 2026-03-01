@@ -143,59 +143,98 @@ function toggleMenu(){
 function openPage(title, content){
     let newTab = window.open("", "_blank");
     newTab.document.write(`
+    <!DOCTYPE html>
     <html>
     <head>
+    <meta charset="UTF-8">
     <title>${title}</title>
     <link rel="stylesheet" href="exl.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
 
-    <div class="menu-toggle" onclick="window.opener.toggleMenu()">☰</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
     <div class="side-nav" id="sideNav">
-        ${window.opener.document.getElementById("sideNav").innerHTML}
+        <a onclick="openBeranda()">Beranda</a>
+        <a onclick="openProfil()">Profil Perpustakaan</a>
+        <a onclick="openLayanan()">Layanan</a>
+        <a onclick="openStruktur()">Struktur Organisasi</a>
+        <a onclick="openKoleksi()">Koleksi</a>
+        <a onclick="openKegiatan()">Kegiatan & Berita</a>
+        <a onclick="openAdmin()">Admin</a>
+        <a onclick="openKontak()">Kontak & Umpan Balik</a>
     </div>
-    <div class="content">
     
     <header class="hero-banner">
             <nav class="top-nav">
-                <a onclick="window.opener.openBeranda()">Beranda</a>
-                <a onclick="window.opener.openProfil()">Profil</a>
-                <a onclick="window.opener.openLayanan()">Layanan</a>
-                <a onclick="window.opener.openStruktur()">Struktur</a>
-                <a onclick="window.opener.openKoleksi()">Koleksi</a>
-                <a onclick="window.opener.openKegiatan()">Kegiatan</a>
-                <a onclick="window.opener.openAdmin()">Admin</a>
-                <a onclick="window.opener.openKontak()">Kontak</a>
-                <a onclick="window.opener.handleLogin();setTimeout(()=>window.close(),200);">
-                    ${isLoggedIn ? "Logout" : "Login"}
-                </a>
-            </nav>
+               <a onclick="openBeranda()">Beranda</a>
+                <a onclick="openProfil()">Profil</a>
+                <a onclick="openLayanan()">Layanan</a>
+                <a onclick="openStruktur()">Struktur</a>
+                <a onclick="openKoleksi()">Koleksi</a>
+                <a onclick="openKegiatan()">Kegiatan</a>
+                <a onclick="openAdmin()">Admin</a>
+                <a onclick="openKontak()">Kontak</a>
+                <a onclick="handleLogin()">Login</a>
+
+                <div class="search-wrapper">
+                    <a href="javascript:void(0)" onclick="toggleSearch()">🔍</a>
+                    <div class="search-box" id="searchBox">
+                        <input type="text" placeholder="Cari Buku">
+                    </div>
+                </div>
+            </nav>  
+            
             <h1>${title}</h1>
         </header>
 
     <section>${content}</section>
     
     <footer>
-    <p>Let’s connect.</p>
+    <div class="footer-container">
+
+    <div class="footer-center">
+    <p><strong>Let’s connect.</strong></p>
+    </div>
+
+    <div class="footer-left">
+    <p><strong>Kontak Resmi:</strong></p>
     <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
     <p>WhatsApp: +62 821-6612-1137</p>
-    
+    </div>
+
+    <div class="footer-left">
     <p><strong>Jam Layanan:</strong></p>
     <p>Senin – Jumat: 08.00 – 17.00 WIB</p>
     <p>Sabtu: 09.00 – 14.00 WIB</p>
     <p>Minggu & Hari Libur Nasional: Tutup</p>
+    </div>
 
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18..."
-        allowfullscreen="" 
+    <div class="footer-right">
+    <p><strong>Lokasi Kami:</strong></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen="" 
         loading="lazy">
     </iframe>
-    
-    <p>© 2026 Perpustakaan Cakrawala Literasi.</p>
-    </footer>
-
     </div>
+    
+    <p class="footer-bottom">© 2026 Perpustakaan Cakrawala Literasi.</p>
+    </footer>
+    </div>
+
+    <script>
+            ${toggleMenu.toString()}
+            ${toggleSearch.toString()}
+            ${handleLogin.toString()}
+            ${openBeranda.toString()}
+            ${openProfil.toString()}
+            ${openLayanan.toString()}
+            ${openStruktur.toString()}
+            ${openKoleksi.toString()}
+            ${openKegiatan.toString()}
+            ${openAdmin.toString()}
+            ${openKontak.toString()}
+        <\/script>
+
     </body>
     </html>
     `);
