@@ -39,7 +39,7 @@
         <a onclick="openKontak()">Kontak & Umpan Balik</a>
         <a onclick="handleLogin()" id="loginNav">Login</a>
 
-        <span class="search-icon" onclick="toggleSearch()">🔍</span>
+        <a href="#" class="search-icon">🔎</a>
         <div class="search-box" id="searchBox">
             <input type="text" placeholder="Cari Buku">
         </div>
@@ -49,7 +49,7 @@
     <p><i>Membuka Cakrawala Pengetahuan, Membangun Generasi Berdaya</i></p>
 </header>
     
-<section class="hero">
+<section>
     <h2>Selamat Datang di Perpustakaan Cakrawala Literasi 🚀</h2>
     <p>
         Perpustakaan Cakrawala Literasi adalah ruang literasi publik yang menghadirkan
@@ -95,9 +95,21 @@
 </section>
 
 <footer>
-    <p>Let’s connect.</p>
+    <p><strong>Let’s connect.</strong></p>
     <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
     <p>WhatsApp: +62 821-6612-1137</p>
+
+    <p><strong>Jam Layanan:</strong></p>
+    <p>Senin – Jumat: 08.00 – 17.00 WIB</p>
+    <p>Sabtu: 09.00 – 14.00 WIB</p>
+    <p>Minggu & Hari Libur Nasional: Tutup</p>
+
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18..."
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+    
     <p>© 2026 Perpustakaan Cakrawala Literasi.</p>
 </footer>
 
@@ -122,10 +134,6 @@ function toggleMenu(){
     document.body.classList.toggle("menu-open");
 }
 
-function toggleSearch(){
-    document.getElementById("searchBox").classList.toggle("active");
-}
-
 function openPage(title, content){
     let newTab = window.open("", "_blank");
     newTab.document.write(`
@@ -136,6 +144,12 @@ function openPage(title, content){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+
+    <div class="menu-toggle" onclick="window.opener.toggleMenu()">☰</div>
+    <div class="side-nav" id="sideNav">
+        ${window.opener.document.getElementById("sideNav").innerHTML}
+    </div>
+    <div class="content">
     
     <header class="hero-banner">
             <nav class="top-nav">
@@ -162,7 +176,8 @@ function openPage(title, content){
     <p>WhatsApp: +62 821-6612-1137</p>
     <p>© 2026 Perpustakaan Cakrawala Literasi.</p>
     </footer>
-    
+
+    </div>
     </body>
     </html>
     `);
