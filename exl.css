@@ -67,6 +67,31 @@ body {
     font-size: 18px;
 }
 
+/* SEARCH WRAPPER */
+.search-wrapper{
+    display:flex;
+    align-items:center;
+    margin-left:15px;
+    position:relative;
+}
+
+/* SEARCH BOX */
+.search-box{
+    display:none;
+    margin-left:10px;
+}
+
+.search-box input{
+    padding:6px 10px;
+    font-size:14px;
+    border-radius:4px;
+    border:1px solid #ccc;
+}
+
+/* ACTIVE SEARCH */
+.search-box.active{
+    display:block;
+}
 /* =========================
    HAMBURGER MENU
 ========================= */
