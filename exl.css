@@ -205,7 +205,7 @@ button:hover {
 footer {
     background-color: #205A28;
     padding: 35px 20px; 
-    text-align: center;
+    text-align: left;
     color: white;
     font-size: 15px;
 }
