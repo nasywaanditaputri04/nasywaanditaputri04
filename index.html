@@ -19,6 +19,7 @@
     <a onclick="openStruktur()">Struktur Organisasi</a>
     <a onclick="openKoleksi()">Koleksi</a>
     <a onclick="openKegiatan()">Kegiatan & Berita</a>
+    <a onclick="openForum()">Forum</a>
     <a onclick="openAdmin()">Admin</a>
     <a onclick="openKontak()">Kontak & Umpan Balik</a>
     <a onclick="handleLogin()" id="loginText">Login</a>
@@ -34,6 +35,7 @@
         <a onclick="openStruktur()">Struktur Organisasi</a>
         <a onclick="openKoleksi()">Koleksi</a>
         <a onclick="openKegiatan()">Kegiatan & Berita</a>
+        <a onclick="openForum()">Forum</a>
         <a onclick="openAdmin()">Admin</a>
         <a onclick="openKontak()">Kontak & Umpan Balik</a>
         <a onclick="handleLogin()" id="loginNav">Login</a>
@@ -178,6 +180,7 @@ function openPage(title, content){
         <a href="javascript:void(0)" onclick="openStruktur()">Struktur Organisasi</a>
         <a href="javascript:void(0)" onclick="openKoleksi()">Koleksi</a>
         <a href="javascript:void(0)" onclick="openKegiatan()">Kegiatan & Berita</a>
+        <a href="javascript:void(0)" onclick="openForum()">Forum</a>
         <a href="javascript:void(0)" onclick="openAdmin()">Admin</a>
         <a href="javascript:void(0)" onclick="openKontak()">Kontak & Umpan Balik</a>
     </div>
@@ -423,6 +426,116 @@ function openKontak() {
 `);
 }
 
+function openForum(){
+openPage("Forum Diskusi Literasi", `
+
+    <h2>📚 Forum Diskusi Literasi</h2>
+    <p>Ruang interaktif bagi pustakawan dan pengguna untuk berdiskusi, berbagi ide, dan bertukar wawasan.</p>
+    
+    <hr>
+    
+    <h3>🔥 Pilih Topik Diskusi</h3>
+    
+    <select id="kategoriForum" style="padding:8px;margin-bottom:15px;">
+        <option>Literasi Digital</option>
+        <option>Manajemen Perpustakaan</option>
+        <option>Rekomendasi Buku</option>
+        <option>Teknologi Informasi</option>
+        <option>Psikologi Pengguna</option>
+    </select>
+    
+    <hr>
+    
+    <h3>✍️ Buat Topik Baru</h3>
+    <input type="text" id="judulTopik" placeholder="Judul Diskusi..." style="width:100%;max-width:400px;padding:8px;"><br><br>
+    <textarea id="isiTopik" rows="4" placeholder="Tulis pendapat atau pertanyaan Anda..." style="width:100%;max-width:400px;"></textarea><br><br>
+    <button onclick="kirimTopik()">Kirim Diskusi</button>
+    <p id="forumMsg"></p>
+    
+    <hr>
+    
+    <h3>💬 Diskusi Terbaru</h3>
+    <div id="daftarDiskusi" style="margin-top:20px;"></div>
+    
+    <script>
+    
+    let diskusi = [];
+    
+    function kirimTopik(){
+        let judul = document.getElementById("judulTopik").value;
+        let isi = document.getElementById("isiTopik").value;
+        let kategori = document.getElementById("kategoriForum").value;
+    
+        if(judul !== "" && isi !== ""){
+            let data = {
+                judul: judul,
+                isi: isi,
+                kategori: kategori,
+                komentar: []
+            };
+    
+            diskusi.unshift(data);
+            tampilkanDiskusi();
+    
+            document.getElementById("forumMsg").innerHTML =
+            "<span class='success'>Diskusi berhasil diposting!</span>";
+    
+            document.getElementById("judulTopik").value="";
+            document.getElementById("isiTopik").value="";
+        } else {
+            alert("Harap isi semua data!");
+        }
+    }
+    
+    function tampilkanDiskusi(){
+        let container = document.getElementById("daftarDiskusi");
+        container.innerHTML = "";
+    
+        function tampilkanDiskusi(){
+            let container = document.getElementById("daftarDiskusi");
+            container.innerHTML = "";
+        
+            diskusi.forEach(function(item,index){
+        
+                container.innerHTML += 
+                "<div style='border:1px solid #ccc;padding:15px;margin-bottom:15px;border-radius:6px;'>"+
+                "<h4>"+item.judul+"</h4>"+
+                "<p><strong>Kategori:</strong> "+item.kategori+"</p>"+
+                "<p>"+item.isi+"</p>"+
+        
+                "<input type='text' id='komen"+index+"' placeholder='Tulis komentar...' style='width:70%;padding:6px;'>"+
+                "<button onclick='kirimKomentar("+index+")'>Balas</button>"+
+        
+                "<div id='komentarList"+index+"' style='margin-top:10px;'></div>"+
+                "</div>";
+        });
+    }
+    
+    function kirimKomentar(index){
+        let input = document.getElementById("komen"+index);
+        let teks = input.value;
+    
+        if(teks !== ""){
+            diskusi[index].komentar.push(teks);
+            tampilkanKomentar(index);
+            input.value="";
+        }
+    }
+    
+    function tampilkanKomentar(index){
+        let area = document.getElementById("komentarList"+index);
+        area.innerHTML="";
+    
+        diskusi[index].komentar.forEach(k=>{
+            area.innerHTML += `<p style="margin-left:15px;">💬 ${k}</p>`;
+        });
+    }
+    
+    <\/script>
+    
+    `);
+    }
+    
 function openLogin() {
     let newTab = window.open("", "_blank");
     newTab.document.write(`
