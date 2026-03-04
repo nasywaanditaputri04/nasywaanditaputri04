@@ -245,7 +245,6 @@ function openPage(title, content){
     </div>
 
     <script>
-        let isLoggedIn = false;
             ${toggleMenu.toString()}
             ${toggleSearch.toString()}
             ${handleLogin.toString()}
@@ -255,6 +254,7 @@ function openPage(title, content){
             ${openStruktur.toString()}
             ${openKoleksi.toString()}
             ${openKegiatan.toString()}
+            ${openForum.toString()}
             ${openAdmin.toString()}
             ${openKontak.toString()}
         <\/script>
@@ -488,28 +488,24 @@ openPage("Forum Diskusi Literasi", `
     }
     
     function tampilkanDiskusi(){
-        let container = document.getElementById("daftarDiskusi");
-        container.innerHTML = "";
-    
-        function tampilkanDiskusi(){
-            let container = document.getElementById("daftarDiskusi");
-            container.innerHTML = "";
-        
-            diskusi.forEach(function(item,index){
-        
-                container.innerHTML += 
-                "<div style='border:1px solid #ccc;padding:15px;margin-bottom:15px;border-radius:6px;'>"+
-                "<h4>"+item.judul+"</h4>"+
-                "<p><strong>Kategori:</strong> "+item.kategori+"</p>"+
-                "<p>"+item.isi+"</p>"+
-        
-                "<input type='text' id='komen"+index+"' placeholder='Tulis komentar...' style='width:70%;padding:6px;'>"+
-                "<button onclick='kirimKomentar("+index+")'>Balas</button>"+
-        
-                "<div id='komentarList"+index+"' style='margin-top:10px;'></div>"+
-                "</div>";
-        });
-    }
+    let container = document.getElementById("daftarDiskusi");
+    container.innerHTML = "";
+
+    diskusi.forEach(function(item,index){
+
+        container.innerHTML += 
+        "<div style='border:1px solid #ccc;padding:15px;margin-bottom:15px;border-radius:6px;'>"+
+        "<h4>"+item.judul+"</h4>"+
+        "<p><strong>Kategori:</strong> "+item.kategori+"</p>"+
+        "<p>"+item.isi+"</p>"+
+
+        "<input type='text' id='komen"+index+"' placeholder='Tulis komentar...' style='width:70%;padding:6px;'>"+
+        "<button onclick='kirimKomentar("+index+")'>Balas</button>"+
+
+        "<div id='komentarList"+index+"' style='margin-top:10px;'></div>"+
+        "</div>";
+    });
+}
     
     function kirimKomentar(index){
         let input = document.getElementById("komen"+index);
@@ -528,7 +524,7 @@ openPage("Forum Diskusi Literasi", `
     
         diskusi[index].komentar.forEach(k=>{
             area.innerHTML += `<p style="margin-left:15px;">💬 ${k}</p>`;
-        });
+        }
     }
     
     <\/script>
