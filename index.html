@@ -244,21 +244,6 @@ function openPage(title, content){
     </footer>
     </div>
 
-    <script>
-            ${toggleMenu.toString()}
-            ${toggleSearch.toString()}
-            ${handleLogin.toString()}
-            ${openBeranda.toString()}
-            ${openProfil.toString()}
-            ${openLayanan.toString()}
-            ${openStruktur.toString()}
-            ${openKoleksi.toString()}
-            ${openKegiatan.toString()}
-            ${openForum.toString()}
-            ${openAdmin.toString()}
-            ${openKontak.toString()}
-        <\/script>
-
     </body>
     </html>
     `);
@@ -488,50 +473,49 @@ openPage("Forum Diskusi Literasi", `
     }
     
     function tampilkanDiskusi(){
-    let container = document.getElementById("daftarDiskusi");
-    container.innerHTML = "";
-
-    diskusi.forEach(function(item,index){
-
-        container.innerHTML += 
-        "<div style='border:1px solid #ccc;padding:15px;margin-bottom:15px;border-radius:6px;'>"+
-        "<h4>"+item.judul+"</h4>"+
-        "<p><strong>Kategori:</strong> "+item.kategori+"</p>"+
-        "<p>"+item.isi+"</p>"+
-
-        "<input type='text' id='komen"+index+"' placeholder='Tulis komentar...' style='width:70%;padding:6px;'>"+
-        "<button onclick='kirimKomentar("+index+")'>Balas</button>"+
-
-        "<div id='komentarList"+index+"' style='margin-top:10px;'></div>"+
-        "</div>";
-    });
-}
+        let container = document.getElementById("daftarDiskusi");
+        container.innerHTML = "";
     
-    function kirimKomentar(index){
-        let input = document.getElementById("komen"+index);
-        let teks = input.value;
+        diskusi.forEach(function(item,index){
     
-        if(teks !== ""){
-            diskusi[index].komentar.push(teks);
-            tampilkanKomentar(index);
-            input.value="";
+            container.innerHTML += 
+            "<div style='border:1px solid #ccc;padding:15px;margin-bottom:15px;border-radius:6px;'>"+
+            "<h4>"+item.judul+"</h4>"+
+            "<p><strong>Kategori:</strong> "+item.kategori+"</p>"+
+            "<p>"+item.isi+"</p>"+
+    
+            "<input type='text' id='komen"+index+"' placeholder='Tulis komentar...' style='width:70%;padding:6px;'>"+
+            "<button onclick='kirimKomentar("+index+")'>Balas</button>"+
+    
+            "<div id='komentarList"+index+"' style='margin-top:10px;'></div>"+
+            "</div>";
+                });
         }
+            
+    function kirimKomentar(index){
+            let input = document.getElementById("komen"+index);
+            let teks = input.value;
+        
+            if(teks !== ""){
+                diskusi[index].komentar.push(teks);
+                tampilkanKomentar(index);
+                input.value="";
+            }
     }
     
     function tampilkanKomentar(index){
-        let area = document.getElementById("komentarList"+index);
-        area.innerHTML="";
-    
-        diskusi[index].komentar.forEach(k=>{
-            area.innerHTML += `<p style="margin-left:15px;">💬 ${k}</p>`;
-        }
-    }
-    
+    let area = document.getElementById("komentarList"+index);
+    area.innerHTML = "";
+
+    diskusi[index].komentar.forEach(function(k){
+        area.innerHTML += "<p style='margin-left:15px;'>💬 "+k+"</p>";
+    });
+}
+        
     <\/script>
     
-    `);
-    }
-    
+   `);
+}
 function openLogin() {
     let newTab = window.open("", "_blank");
     newTab.document.write(`
