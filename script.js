@@ -205,18 +205,33 @@ function openStruktur(){
 
 function openKoleksi(){
     openPage("Koleksi", `
-    <h2>Jenis Koleksi</h2>
-    <ul>
-    <li>Buku Fiksi</li>
-    <li>Buku Non-Fiksi</li>
-    <li>Buku Akademik</li>
-    <li>E-book</li>
-    <li>Jurnal Digital</li>
-    </ul>
-    
     <h2>Pencarian Katalog</h2>
     <input type="text" placeholder="Cari Judul Buku..." style="padding:8px;width:250px;">
     <button>Cari</button>
+    
+    <h2>Koleksi Buku Perpustakaan</h2>
+    
+    <div class="book-grid">
+
+        <div class="book-card">
+        <img src="buku1.jpg">
+        <h4>Hansel and Gretel</h4>
+        <button onclick="bukaBuku('Hansel dan Gretel')">Baca</button>
+        </div>
+        
+        <div class="book-card">
+        <img src="buku2.jpg">
+        <h4>Harry Potter and the Sorcerer's Stone</h4>
+        <button onclick="bukaBuku('Harry Potter and the Sorcerer's Stone')">Baca</button>
+        </div>
+        
+        <div class="book-card">
+        <img src="buku3.jpg">
+        <h4>Tales From Whispering Woods</h4>
+        <button onclick="bukaBuku('Tales From Whispering Woods')">Baca</button>
+        </div>
+    </div>
+    
 `);
 }
 
@@ -377,6 +392,25 @@ openPage("Forum Diskusi Literasi", `
     
    `);
 }
+
+function lihatEvent(){
+    alert(
+    "Pameran Koleksi Terbaru 2026\n\n" +
+    "Tanggal : 4 April 2026\n" +
+    "Lokasi : Perpustakaan Cakrawala Literasi\n\n" +
+    "Jangan lewatkan kesempatan melihat koleksi terbaru!"
+    );
+
+}
+
+function bukaBuku(judul){
+    alert(
+    "Anda membuka buku: " + judul + 
+    "\n\nFitur membaca buku digital akan segera tersedia."
+    );
+
+}
+
 function openLogin() {
     let newTab = window.open("", "_blank");
     newTab.document.write(`
@@ -466,6 +500,12 @@ function openLogin() {
         let pass = document.getElementById("loginPass").value;
 
         if(email !== "" && pass !== ""){
+            if(user){
+    
+            let data = JSON.parse(user);
+            
+            if(pass === data.password){
+            
             document.getElementById("loginMsg").innerHTML =
             "<span class='success'>Login Berhasil!</span>";
 
@@ -483,8 +523,11 @@ function openLogin() {
                 },1500);
                 
         } else {
-            alert("Harap isi semua data!");
-        }
+            alert("Password salah");
+            }
+        }else{
+            alert("Akun tidak ditemukan");
+            }
     }
 
     function register(){
@@ -493,6 +536,15 @@ function openLogin() {
         let pass = document.getElementById("regPass").value;
 
         if(nama !== "" && email !== "" && pass !== ""){
+
+        let dataUser = {
+        nama: nama,
+        email: email,
+        password: pass
+        };
+
+        localStorage.setItem(email, JSON.stringify(dataUser));
+        
             document.getElementById("registerMsg").innerHTML =
             "<span class='success'>Pendaftaran Berhasil!</span>";
         } else {
