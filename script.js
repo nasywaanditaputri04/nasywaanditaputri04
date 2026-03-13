@@ -81,10 +81,6 @@ function openPage(title, content){
     <footer>
     <div class="footer-container">
 
-    <div class="footer-center">
-        <p><strong>Let’s connect.</strong></p>
-    </div>
-
     <div class="footer-left">
     <p><strong>Kontak Resmi:</strong></p>
     <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
