@@ -29,6 +29,7 @@
 
 <header class="hero-banner">
     <nav class="top-nav">
+    <div class="nav-left">
         <a onclick="openBeranda()">Beranda</a>
         <a onclick="openProfil()">Profil Perpustakaan</a>
         <a onclick="openLayanan()">Layanan</a>
@@ -38,14 +39,19 @@
         <a onclick="openForum()">Forum</a>
         <a onclick="openAdmin()">Admin</a>
         <a onclick="openKontak()">Kontak & Umpan Balik</a>
-        <a onclick="handleLogin()" id="loginNav">Login</a>
-
-    <div class="search-wrapper">
-        <a href="javascript:void(0)" class="search-icon" onclick="toggleSearch()">🔍︎</a>
-        <div class="search-box" id="searchBox">
-            <input type="text" placeholder="Cari Buku">
+        
+        <div class="search-wrapper">
+            <a href="javascript:void(0)" class="search-icon" onclick="toggleSearch()">🔍︎</a>
+            <div class="search-box" id="searchBox">
+                <input type="text" placeholder="Cari Buku">
+            </div>
         </div>
     </div>
+
+    <div class="nav-right">
+       <button class="login-btn" onclick="handleLogin()" id="loginNav">Login</button>
+    </div>
+        
     </nav>
 
     <h1>PERPUSTAKAAN CAKRAWALA LITERASI</h1>
@@ -81,6 +87,25 @@
 
 <hr>
 
+<section class="event-banner">
+
+    <h2><strong>🎉 Pameran Koleksi Terba 2026</strong></h2>
+    
+    <img src="poster-event.jpg" class="poster-event">
+    
+    <p>
+    Perpustakaan Cakrawala Literasi menghadirkan
+    <strong>Pameran Koleksi Terbaru 2026</strong>.
+    Temukan berbagai buku inspiratif, literasi digital,
+    dan koleksi akademik terbaru.
+    </p>
+    
+    <button onclick="lihatEvent()">Lihat Detail Event</button>
+
+</section>
+
+<hr>
+    
 <section>
     <h3 style="text-align:center;">Contact Us</h3>
     <form style="padding:40px;">
