@@ -312,3 +312,45 @@ footer {
         font-size: 24px;
     }
 }
+
+.book-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.book-card{
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.book-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+.nav-left{
+    display:flex;
+    gap:20px;
+}
+
+.nav-right{
+    margin-left:auto;
+}
+
+.login-btn{
+    background:#C72B32;
+    color:white;
+    border:none;
+    padding:8px 18px;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
