@@ -584,3 +584,5 @@ function register(){
     }
 }
 </script> 
+</body>
+</html>
