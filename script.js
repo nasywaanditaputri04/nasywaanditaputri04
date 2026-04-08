@@ -3,8 +3,11 @@ let isLoggedIn = false;
 function handleLogin(){
     if(isLoggedIn){
         isLoggedIn = false;
-        document.getElementById("loginNav").innerText="Login";
-        document.getElementById("loginText").innerText="Login";
+        let nav1 = document.getElementById("loginNav");
+        let nav2 = document.getElementById("loginText");
+        
+        if(nav1) nav1.innerText = "Logout";
+        if(nav2) nav2.innerText = "Logout";
         alert("Logout Berhasil");
     } else {
         openLogin();
@@ -35,6 +38,23 @@ function openPage(title, content){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+    <script>
+        function toggleMenu(){
+            document.body.classList.toggle("menu-open");
+        }
+    
+        function openBeranda(){ window.opener.openBeranda(); }
+        function openProfil(){ window.opener.openProfil(); }
+        function openLayanan(){ window.opener.openLayanan(); }
+        function openStruktur(){ window.opener.openStruktur(); }
+        function openKoleksi(){ window.opener.openKoleksi(); }
+        function openKegiatan(){ window.opener.openKegiatan(); }
+        function openForum(){ window.opener.openForum(); }
+        function openAdmin(){ window.opener.openAdmin(); }
+        function openKontak(){ window.opener.openKontak(); }
+        function handleLogin(){ window.opener.handleLogin(); }
+        function toggleSearch(){ window.opener.toggleSearch(); }
+    </script>
 
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
@@ -504,8 +524,12 @@ function login(){
         let user = localStorage.getItem(email); // ✅ PERBAIKAN
 
         if(user){
-            let data = JSON.parse(user);
-
+            try{
+                let data = JSON.parse(user);
+            } catch(e){
+                alert("Data akun rusak");
+                return;
+            }
             if(pass === data.password){
 
                 document.getElementById("loginMsg").innerHTML =
