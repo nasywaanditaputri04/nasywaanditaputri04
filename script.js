@@ -1,6 +1,5 @@
 let isLoggedIn = false;
 
-// ================= LOGIN =================
 function handleLogin(){
     if(isLoggedIn){
         isLoggedIn = false;
@@ -12,7 +11,6 @@ function handleLogin(){
     }
 }
 
-// ================= SEARCH =================
 function toggleSearch(){
     const box = document.getElementById("searchBox");
     box.classList.toggle("active");
@@ -20,16 +18,13 @@ function toggleSearch(){
         box.querySelector("input").focus();
     }
 }
-
-// ================= MENU =================
+    
 function toggleMenu(){
     document.body.classList.toggle("menu-open");
 }
 
-// ================= PAGE SYSTEM =================
 function openPage(title, content){
     let newTab = window.open("", "_blank");
-
     newTab.document.write(`
     <!DOCTYPE html>
     <html>
@@ -37,112 +32,532 @@ function openPage(title, content){
     <meta charset="UTF-8">
     <title>${title}</title>
     <link rel="stylesheet" href="exl.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
 
-    <h1>${title}</h1>
-    <div>${content}</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="side-nav" id="sideNav">
+        <a href="javascript:void(0)" onclick="openBeranda()">Beranda</a>
+        <a href="javascript:void(0)" onclick="openProfil()">Profil Perpustakaan</a>
+        <a href="javascript:void(0)" onclick="openLayanan()">Layanan</a>
+        <a href="javascript:void(0)" onclick="openStruktur()">Struktur Organisasi</a>
+        <a href="javascript:void(0)" onclick="openKoleksi()">Koleksi</a>
+        <a href="javascript:void(0)" onclick="openKegiatan()">Kegiatan & Berita</a>
+        <a href="javascript:void(0)" onclick="openForum()">Forum</a>
+        <a href="javascript:void(0)" onclick="openAdmin()">Admin</a>
+        <a href="javascript:void(0)" onclick="openKontak()">Kontak & Umpan Balik</a>
+    </div>
+    <div class="content">
+    
+    <header class="hero-banner">
+            <nav class="top-nav">
+            <a href="javascript:void(0)" onclick="openBeranda()">Beranda</a>
+            <a href="javascript:void(0)" onclick="openProfil()">Profil</a>
+            <a href="javascript:void(0)" onclick="openLayanan()">Layanan</a>
+            <a href="javascript:void(0)" onclick="openStruktur()">Struktur</a>
+            <a href="javascript:void(0)" onclick="openKoleksi()">Koleksi</a>
+            <a href="javascript:void(0)" onclick="openKegiatan()">Kegiatan</a>
+            <a href="javascript:void(0)" onclick="openAdmin()">Admin</a>
+            <a href="javascript:void(0)" onclick="openKontak()">Kontak</a>
+            <a href="javascript:void(0)" onclick="handleLogin()">Login</a>
+
+                <div class="search-wrapper">
+                    <a href="javascript:void(0)" onclick="toggleSearch()">🔍</a>
+                    <div class="search-box" id="searchBox">
+                        <input type="text" placeholder="Cari Buku">
+                    </div>
+                </div>
+            </nav>  
+            
+            <h1>${title}</h1>
+        </header>
+
+    <section id="mainContent">${content}</section>
+
+    </div>
+    
+    <footer>
+    <div class="footer-container">
+
+    <div class="footer-left">
+    <p><strong>Kontak Resmi:</strong></p>
+    <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
+    <p>WhatsApp: +62 821-6612-1137</p>
+    </div>
+
+    <div class="footer-left">
+    <p><strong>Jam Layanan:</strong></p>
+    <p>Senin – Jumat: 08.00 – 17.00 WIB</p>
+    <p>Sabtu: 09.00 – 14.00 WIB</p>
+    <p>Minggu & Hari Libur Nasional: Tutup</p>
+    </div>
+
+    <div class="footer-right">
+    <p><strong>Lokasi Kami:</strong></p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+    </div>
+    
+    <p class="footer-bottom">© 2026 Perpustakaan Cakrawala Literasi.</p>
+    </footer>
+    </div>
 
     </body>
     </html>
     `);
-
     newTab.document.close();
 }
 
-// ================= MENU PAGES =================
 function openBeranda(){
-    openPage("Beranda", "<h2>Selamat Datang 🚀</h2>");
-}
+openPage("Beranda", `
+<h2>Selamat Datang di Perpustakaan Cakrawala Literasi 🚀</h2>
+    <p>
+        Perpustakaan Cakrawala Literasi adalah ruang literasi publik yang menghadirkan
+        akses informasi, pembelajaran, dan refleksi dalam satu lingkungan yang inklusif
+        dan inovatif. Kami berkomitmen membangun masyarakat berdaya melalui budaya literasi
+        yang berkelanjutan.
+    </p>
 
+<hr>
+    
+    <h2>Informasi Terbaru</h2>
+        <p>📢 Program Literasi Digital 2026 telah dibuka untuk umum.</p>
+        <p>📚 Koleksi terbaru buku pengembangan diri telah tersedia.</p>
+
+<hr>
+        
+    <h2>Akses Cepat</h2>
+        <ul>
+        <li>Pendaftaran Anggota</li>
+        <li>Peminjaman Buku</li>
+        <li>Katalog Online</li>
+        <li>Layanan Referensi</li>
+        </ul>
+    `);
+}
+    
 function openProfil(){
-    openPage("Profil", "<p>Profil Perpustakaan</p>");
+    openPage("Profil Perpustakaan", `
+
+        <h2>Profil Perpustakaan</h2>
+        <p>Perpustakaan Umum Cakrawala Literasi merupakan institusi literasi publik 
+        yang berkomitmen menyediakan akses informasi secara inklusif dan berkelanjutan.
+        Sebagai ruang literasi modern, perpustakaan ini tidak hanya menyediakan 
+        koleksi bahan pustaka, tetapi juga menghadirkan lingkungan pembelajaran yang 
+        mendukung kesejahteraan intelektual dan psikologis masyarakat.
+        Dengan pendekatan berbasis teknologi dan inovasi layanan, Perpustakaan 
+        Cakrawala Literasi hadir sebagai pusat pengembangan wawasan yang adaptif 
+        terhadap dinamika informasi di era digital.</p>
+        
+        <h2>Visi</h2>
+        <p>Menjadi pusat literasi publik yang inklusif, inovatif, dan berorientasi 
+        pada pengembangan wawasan serta kesejahteraan intelektual masyarakat.</p>
+
+        <h2>Misi</h2>
+        <ul>
+            <li>Menyediakan akses informasi yang akurat, relevan, dan berkualitas.</li>
+            <li>Mendorong budaya membaca dan pembelajaran sepanjangan hayat.</li>
+            <li>Mengembangkan layanan literasi berbasisi teknologi digital.</li>
+            <li>Mewujudkan ruang belajar yang aman, reflektif, dan inklusif.</li>
+            <li>Mendukung peningkatan kapasitas masyarakat melalui program edukatif.</li>
+        </ul>
+
+        <h2>Sejarah</h2>
+        <p>Didirikan tahun 2026 sebagai ruang literasi publik berbasis inovasi.</p>
+
+        <h2>Informasi Kelembagaan</h2>
+        <p>Bernaung di bawah yayasan literasi independen dan terbuka untuk masyarakat umum.</p>
+    `);
 }
 
 function openLayanan(){
-    openPage("Layanan", "<p>Layanan tersedia</p>");
+openPage("Layanan Perpustakaan", `
+    <h2>Prosedur Keanggotaan</h2>
+    <p>Daftar secara online atau langsung di lokasi dengan membawa identitas resmi.</p>
+    
+    <h2>Layanan Peminjaman</h2>
+    <p>Maksimal 3 buku selama 7 hari.</p>
+    
+    <h2>Layanan Referensi</h2>
+    <p>Bantuan pencarian sumber ilmiah dan referensi akademik.</p>
+    
+    <h2>Layanan Literasi</h2>
+    <p>Workshop, seminar, kelas membaca, dan literasi digital.</p>
+`);
 }
 
 function openStruktur(){
-    openPage("Struktur", "<p>Struktur organisasi</p>");
+    openPage("Struktur Organisasi", `
+    <ul>
+    <li>Kepala Perpustakaan</li>
+    <li>Sekretaris</li>
+    <li>Koordinator Layanan</li>
+    <li>Koordinator Koleksi</li>
+    <li>Koordinator Literasi & Program</li>
+    <li>IT & Digital Library</li>
+    <li>Administrasi & Keuangan</li>
+    </ul>
+`);
 }
 
 function openKoleksi(){
-    openPage("Koleksi", "<p>Daftar koleksi buku</p>");
+    openPage("Koleksi", `
+    <h2>Pencarian Katalog</h2>
+    <input type="text" placeholder="Cari Judul Buku..." style="padding:8px;width:250px;">
+    <button>Cari</button>
+    
+    <h2>Koleksi Buku Perpustakaan</h2>
+    
+    <div class="book-grid">
+
+        <div class="book-card">
+        <img src="buku1.jpg">
+        <h4>Hansel and Gretel</h4>
+        <button onclick="bukaBuku('Hansel dan Gretel')">Baca</button>
+        </div>
+        
+        <div class="book-card">
+        <img src="buku2.jpg">
+        <h4>Harry Potter and the Sorcerer's Stone</h4>
+        <button onclick="bukaBuku('Harry Potter and the Sorcerer's Stone')">Baca</button>
+        </div>
+        
+        <div class="book-card">
+        <img src="buku3.jpg">
+        <h4>Tales From Whispering Woods</h4>
+        <button onclick="bukaBuku('Tales From Whispering Woods')">Baca</button>
+        </div>
+    </div>
+    
+`);
 }
 
 function openKegiatan(){
-    openPage("Kegiatan", "<p>Kegiatan terbaru</p>");
+    openPage("Kegiatan & Berita", `
+    <p>📅 Seminar Literasi Nasional 2026</p>
+    <p>📚 Bedah Buku & Diskusi Publik</p>
+    <p>💻 Workshop Digital Library</p>
+    <p>📖 Program Donasi Buku untuk Masyarakat</p>
+`);
+}
+    
+function openAdmin() {
+    openPage("Admin", `
+        <h2>Admin</h2>
+        <p>Mengenal lebih dekat pemilik Nanaribrary.</p>
+
+        <ul>
+        <li><a href="https://www.instagram.com/nasywwaa_nap27/" target="_blank">My Social Media</a></li>
+        <li><a href="https://sites.google.com/view/nasywaonlineportfolio/whos-nap" target="_blank">My Portfolio</a></li>
+        </ul>
+
+        <h2>The Process</h2>
+
+        <video width="320" controls>
+        <source src="video-saya.mp4" type="video/mp4">
+        </video>
+
+        <p>Musik yang menemani proses belajar dan berkarya.</p>
+
+        <audio controls>
+        <source src="audio-saya.mp3" type="audio/mp3">
+        </audio>
+    `);
+}
+
+function openKontak() {
+    openPage("Kontak & Umpan Balik", `
+    <h2>Kontak Resmi</h2>
+    <p>Email: perpustakaancakrawalaliterasi@gmail.com</p>
+    <p>WhatsApp: +62 821-6612-1137</p>
+    
+    <h2>Form Umpan Balik</h2>
+    <form>
+    <label>Email:</label><br>
+    <input type="email" required><br><br>
+    <label>No Telepon:</label><br>
+    <input type="tel" required><br><br>
+    <label>Pesan:</label><br>
+    <textarea rows="4" style="width:100%;max-width:400px;"></textarea><br><br>
+    <button>Kirim</button>
+    </form>
+`);
 }
 
 function openForum(){
-    openPage("Forum", "<p>Forum diskusi</p>");
+openPage("Forum Diskusi Literasi", `
+
+    <h2>📚 Forum Diskusi Literasi</h2>
+    <p>Ruang interaktif bagi pustakawan dan pengguna untuk berdiskusi, berbagi ide, dan bertukar wawasan.</p>
+    
+    <hr>
+    
+    <h3>🔥 Pilih Topik Diskusi</h3>
+    
+    <select id="kategoriForum" style="padding:8px;margin-bottom:15px;">
+        <option>Literasi Digital</option>
+        <option>Manajemen Perpustakaan</option>
+        <option>Rekomendasi Buku</option>
+        <option>Teknologi Informasi</option>
+        <option>Psikologi Pengguna</option>
+    </select>
+    
+    <hr>
+    
+    <h3>✍️ Buat Topik Baru</h3>
+    <input type="text" id="judulTopik" placeholder="Judul Diskusi..." style="width:100%;max-width:400px;padding:8px;"><br><br>
+    <textarea id="isiTopik" rows="4" placeholder="Tulis pendapat atau pertanyaan Anda..." style="width:100%;max-width:400px;"></textarea><br><br>
+    <button onclick="kirimTopik()">Kirim Diskusi</button>
+    <p id="forumMsg"></p>
+    
+    <hr>
+    
+    <h3>💬 Diskusi Terbaru</h3>
+    <div id="daftarDiskusi" style="margin-top:20px;"></div>
+    
+    <script>
+    
+    let diskusi = [];
+    
+    function kirimTopik(){
+        let judul = document.getElementById("judulTopik").value;
+        let isi = document.getElementById("isiTopik").value;
+        let kategori = document.getElementById("kategoriForum").value;
+    
+        if(judul !== "" && isi !== ""){
+            let data = {
+                judul: judul,
+                isi: isi,
+                kategori: kategori,
+                komentar: []
+            };
+    
+            diskusi.unshift(data);
+            tampilkanDiskusi();
+    
+            document.getElementById("forumMsg").innerHTML =
+            "<span class='success'>Diskusi berhasil diposting!</span>";
+    
+            document.getElementById("judulTopik").value="";
+            document.getElementById("isiTopik").value="";
+        } else {
+            alert("Harap isi semua data!");
+        }
+    }
+    
+    function tampilkanDiskusi(){
+        let container = document.getElementById("daftarDiskusi");
+        container.innerHTML = "";
+    
+        diskusi.forEach(function(item,index){
+    
+            container.innerHTML += 
+            "<div style='border:1px solid #ccc;padding:15px;margin-bottom:15px;border-radius:6px;'>"+
+            "<h4>"+item.judul+"</h4>"+
+            "<p><strong>Kategori:</strong> "+item.kategori+"</p>"+
+            "<p>"+item.isi+"</p>"+
+    
+            "<input type='text' id='komen"+index+"' placeholder='Tulis komentar...' style='width:70%;padding:6px;'>"+
+            "<button onclick='kirimKomentar("+index+")'>Balas</button>"+
+    
+            "<div id='komentarList"+index+"' style='margin-top:10px;'></div>"+
+            "</div>";
+                });
+        }
+            
+    function kirimKomentar(index){
+            let input = document.getElementById("komen"+index);
+            let teks = input.value;
+        
+            if(teks !== ""){
+                diskusi[index].komentar.push(teks);
+                tampilkanKomentar(index);
+                input.value="";
+            }
+    }
+    
+    function tampilkanKomentar(index){
+    let area = document.getElementById("komentarList"+index);
+    area.innerHTML = "";
+
+    diskusi[index].komentar.forEach(function(k){
+        area.innerHTML += "<p style='margin-left:15px;'>💬 "+k+"</p>";
+    });
+}
+        
+    <\/script>
+    
+   `);
 }
 
-function openAdmin(){
-    openPage("Admin", "<p>Halaman admin</p>");
-}
-
-function openKontak(){
-    openPage("Kontak", "<p>Kontak kami</p>");
-}
-
-// ================= EVENT =================
 function lihatEvent(){
-    alert("Pameran Koleksi Terbaru 2026");
+    alert(
+    "Pameran Koleksi Terbaru 2026\n\n" +
+    "Tanggal : 4 April 2026\n" +
+    "Lokasi : Perpustakaan Cakrawala Literasi\n\n" +
+    "Jangan lewatkan kesempatan melihat koleksi terbaru!"
+    );
+
 }
 
-// ================= BUKU =================
 function bukaBuku(judul){
-    alert("Membuka buku: " + judul);
+    alert(
+    "Anda membuka buku: " + judul + 
+    "\n\nFitur membaca buku digital akan segera tersedia."
+    );
+
 }
 
-// ================= LOGIN POPUP =================
 function openLogin() {
     let newTab = window.open("", "_blank");
-
     newTab.document.write(`
     <html>
     <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    </head>
-    <body style="text-align:center; padding:50px;">
+    <style>
+    body{
+        margin:0;
+        font-family:Arial;
+        background:url('library.jpeg') no-repeat center center/cover;
+        padding:120px 20px;
+        text-align:center;
+        color:white;
+    }
+    .box{
+        background:rgba(0,0,0,0.7);
+        padding:30px;
+        max-width:350px;
+        margin:auto;
+    }
+    input{
+        width:100%;
+        padding:8px;
+        margin:10px 0;
+    }
+    button{
+        padding:8px 15px;
+        background:#C72B32;
+        color:white;
+        border:none;
+        cursor:pointer;
+    }
+    a{color:#FEEAC9;cursor:pointer;}
 
-    <h2>Login</h2>
-    <input id="loginEmail" placeholder="Email"><br><br>
-    <input id="loginPass" type="password" placeholder="Password"><br><br>
-    <button onclick="login()">Masuk</button>
+    /* TEXT BERKEDIP */
+    @keyframes blink{
+        0%{opacity:1;}
+        50%{opacity:0;}
+        100%{opacity:1;}
+    }
+
+    .success{
+        color:lime;
+        animation:blink 1s infinite;
+        margin-top:10px;
+    }
+    </style>
+    </head>
+    <body>
+
+    <div class="box" id="loginBox">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPass" placeholder="Password" required>
+        <button onclick="login()">Masuk</button>
+        <p id="loginMsg"></p>
+        <p>Belum punya akun? <a onclick="showRegister()">Daftar</a></p>
+    </div>
+
+    <div class="box" id="registerBox" style="display:none;">
+        <h2>Daftar</h2>
+        <input type="text" id="namaDepan" placeholder="Nama Depan" required>
+        <input type="text" id="namaBelakang" placeholder="Nama Belakang" required>
+        <input type="email" id="regEmail" placeholder="Email" required>
+        <input type="tel" id="regTelp" placeholder="No Telepon" required>
+        <input type="password" id="regPass" placeholder="Password" required>
+        <button onclick="register()">Kirim</button>
+        <p id="registerMsg"></p>
+        <p>Sudah punya akun? <a onclick="showLogin()">Login</a></p>
+    </div>
 
     <script>
-    function login(){
-        let email = document.getElementById("loginEmail").value;
-        let pass = document.getElementById("loginPass").value;
+function showRegister(){
+    document.getElementById("loginBox").style.display="none";
+    document.getElementById("registerBox").style.display="block";
+}
 
-        let user = localStorage.getItem(email);
+function showLogin(){
+    document.getElementById("loginBox").style.display="block";
+    document.getElementById("registerBox").style.display="none";
+}
+
+function login(){
+    let email = document.getElementById("loginEmail").value;
+    let pass = document.getElementById("loginPass").value;
+
+    if(email !== "" && pass !== ""){
+
+        let user = localStorage.getItem(email); // ✅ PERBAIKAN
 
         if(user){
             let data = JSON.parse(user);
 
             if(pass === data.password){
-                alert("Login berhasil");
+
+                document.getElementById("loginMsg").innerHTML =
+                "<span class='success'>Login Berhasil!</span>";
 
                 if(window.opener){
                     window.opener.isLoggedIn = true;
+
+                    let nav1 = window.opener.document.getElementById("loginNav");
+                    let nav2 = window.opener.document.getElementById("loginText");
+
+                    if(nav1) nav1.innerText = "Logout";
+                    if(nav2) nav2.innerText = "Logout";
                 }
 
-                window.close();
+                setTimeout(function(){
+                    window.close();
+                },1500);
+
             } else {
                 alert("Password salah");
             }
+
         } else {
             alert("Akun tidak ditemukan");
         }
+
+    } else {
+        alert("Harap isi semua data!");
     }
-    <\/script>
-
-    </body>
-    </html>
-    `);
-
-    newTab.document.close();
 }
+
+function register(){
+    let nama = document.getElementById("namaDepan").value;
+    let email = document.getElementById("regEmail").value;
+    let pass = document.getElementById("regPass").value;
+
+    if(nama !== "" && email !== "" && pass !== ""){
+
+        let dataUser = {
+            nama: nama,
+            email: email,
+            password: pass
+        };
+
+        localStorage.setItem(email, JSON.stringify(dataUser));
+
+        document.getElementById("registerMsg").innerHTML =
+        "<span class='success'>Pendaftaran Berhasil!</span>";
+
+    } else {
+        alert("Harap isi semua data!");
+    }
+}
+</script> 
