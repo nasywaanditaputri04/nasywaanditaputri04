@@ -242,7 +242,7 @@ function openKoleksi(){
         <div class="book-card">
         <img src="buku2.jpg">
         <h4>Harry Potter and the Sorcerer's Stone</h4>
-        <button onclick="bukaBuku('Harry Potter and the Sorcerer's Stone')">Baca</button>
+        <button onclick="bukaBuku('Harry Potter and the Sorcerers Stone')">Baca</button>
         </div>
         
         <div class="book-card">
