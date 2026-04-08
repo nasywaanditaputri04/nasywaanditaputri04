@@ -120,7 +120,7 @@ function openPage(title, content){
 
     <div class="footer-right">
     <p><strong>Lokasi Kami:</strong></p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6210140194926!2d106.82438440979793!3d-6.181451893780201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f442596e0c93%3A0x4ba58be40979fe36!2sPerpustakaan%20Nasional%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1775632914888!5m2!1sid!2sid" width="600" height="450" style="border:0;" " allowfullscreen="" 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6210140194926!2d106.82438440979793!3d-6.181451893780201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f442596e0c93%3A0x4ba58be40979fe36!2sPerpustakaan%20Nasional%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1775632914888!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" 
         loading="lazy">
     </iframe>
     </div>
@@ -527,9 +527,10 @@ function login(){
 
         let user = localStorage.getItem(email); // ✅ PERBAIKAN
 
+        let data;
         if(user){
             try{
-                let data = JSON.parse(user);
+                data = JSON.parse(user);
             } catch(e){
                 alert("Data akun rusak");
                 return;
@@ -589,3 +590,4 @@ function register(){
     }
 }
 </script> 
+</html>
