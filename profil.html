@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Perpustakaan Cakrawala Literasi</title>
+<link rel="stylesheet" type="text/css" href="exl.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    
+<body>
+<!-- HAMBURGER BUTTON -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+<!-- SIDE NAV -->
+<div class="side-nav" id="sideNav">
+    <a href="beranda.html">Beranda</a>
+    <a href="profil.html">Profil</a>
+    <a href="layanan.html">Layanan</a>
+    <a href="struktur.html">Struktur Organisasi</a>
+    <a href="koleksi.html">Koleksi</a>
+    <a href="kegiatan.html">Kegiatan & Berita</a>
+    <a href="forum.html">Forum</a>
+    <a href="admin.html">Admin</a>
+    <a href="kontak.html">Kontak & Umpan Balik</a>
+    <a onclick="handleLogin()" id="loginText">Login</a>
+</div>
+
+<div class="content">
+
+<header class="hero-banner">
+    <nav class="top-nav">
+    <div class="nav-left">
+        <a href="beranda.html">Beranda</a>
+        <a href="profil.html">Profil Perpustakaan</a>
+        <a href="layanan.html">Layanan</a>
+        <a href="struktur.html">Struktur Organisasi</a>
+        <a href="koleksi.html">Koleksi</a>
+        <a href="kegiatan.html">Kegiatan & Berita</a>
+        <a href="forum.html">Forum</a>
+        <a href="admin.html">Admin</a>
+        <a href="kontak.html">Kontak & Umpan Balik</a>
+        
+        <div class="search-wrapper">
+            <a href="javascript:void(0)" class="search-icon" onclick="toggleSearch()">🔍︎</a>
+            <div class="search-box" id="searchBox">
+                <input type="text" placeholder="Cari Buku">
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-right">
+       <button class="login-btn" onclick="handleLogin()" id="loginNav">Login</button>
+    </div>
+        
+    </nav>
+
+    <h1>PROFIL</h1>
+    
+</header>
+
+  <h2>Profil Perpustakaan</h2>
+        <p>Perpustakaan Umum Cakrawala Literasi merupakan institusi literasi publik 
+        yang berkomitmen menyediakan akses informasi secara inklusif dan berkelanjutan.
+        Sebagai ruang literasi modern, perpustakaan ini tidak hanya menyediakan 
+        koleksi bahan pustaka, tetapi juga menghadirkan lingkungan pembelajaran yang 
+        mendukung kesejahteraan intelektual dan psikologis masyarakat.
+        Dengan pendekatan berbasis teknologi dan inovasi layanan, Perpustakaan 
+        Cakrawala Literasi hadir sebagai pusat pengembangan wawasan yang adaptif 
+        terhadap dinamika informasi di era digital.</p>
+        
+        <h2>Visi</h2>
+        <p>Menjadi pusat literasi publik yang inklusif, inovatif, dan berorientasi 
+        pada pengembangan wawasan serta kesejahteraan intelektual masyarakat.</p>
+
+        <h2>Misi</h2>
+        <ul>
+            <li>Menyediakan akses informasi yang akurat, relevan, dan berkualitas.</li>
+            <li>Mendorong budaya membaca dan pembelajaran sepanjangan hayat.</li>
+            <li>Mengembangkan layanan literasi berbasisi teknologi digital.</li>
+            <li>Mewujudkan ruang belajar yang aman, reflektif, dan inklusif.</li>
+            <li>Mendukung peningkatan kapasitas masyarakat melalui program edukatif.</li>
+        </ul>
+
+        <h2>Sejarah</h2>
+        <p>Didirikan tahun 2026 sebagai ruang literasi publik berbasis inovasi.</p>
+
+        <h2>Informasi Kelembagaan</h2>
+        <p>Bernaung di bawah yayasan literasi independen dan terbuka untuk masyarakat umum.</p>
+
+  <footer>
+    <div class="footer-container">
+
+    <div class="footer-left">
+    <p><strong>Kontak Resmi</strong></p>
+    <p><strong>Email</strong>: perpustakaancakrawalaliterasi@gmail.com</p>
+    <p><strong>WhatsApp</strong>: +62 821-6612-1137</p>
+    </div>
+
+    <div class="footer-left">
+    <p><strong>Jam Layanan:</strong></p>
+    <p>Senin – Jumat: 08.00 – 17.00 WIB</p>
+    <p>Sabtu: 09.00 – 14.00 WIB</p>
+    <p>Minggu & Hari Libur Nasional: Tutup</p>
+    </div>
+
+    <div class="footer-right">
+    <p><strong>Lokasi Kami:</strong></p>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6210140194926!2d106.82438440979793!3d-6.181451893780201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f442596e0c93%3A0x4ba58be40979fe36!2sPerpustakaan%20Nasional%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1775632914888!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+    </div>
+    
+    <p class="footer-bottom">© 2026 Perpustakaan Cakrawala Literasi.</p>
+    </div>
+</footer>
+
+</div>
+
+<!-- PANGGIL JAVASCRIPT -->
+<script src="script.js"></script>
+    
+</body>
+</html>
