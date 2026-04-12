@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let href = link.getAttribute("href");
 
         // ⛔ skip link yang bukan navigasi
-        if(!href || href === "#" || href.startsWith("javascript")) return;
+        if(!href || href === "#" || href.startsWith("javascript") || link.id === "loginText") return;
 
         // =========================
         // EVENT KLIK LINK
