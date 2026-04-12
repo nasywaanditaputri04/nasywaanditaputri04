@@ -74,9 +74,38 @@ function bukaBuku(judul){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
+
+    // update login UI
     updateLoginUI();
 
     let links = document.querySelectorAll(".top-nav a, .side-nav a");
+
+    links.forEach(link => {
+
+        let href = link.getAttribute("href");
+
+        // ⛔ skip link yang bukan navigasi
+        if(!href || href === "#" || href.startsWith("javascript")) return;
+
+        // =========================
+        // EVENT KLIK LINK
+        // =========================
+        link.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+// CTRL + CLICK / MIDDLE CLICK = tab baru
+            if(e.ctrlKey || e.button === 1){
+                goToNewTab(href);
+            } else {
+                goTo(href);
+            }
+        });
+    });
+
+    // =========================
+    // ACTIVE MENU
+    // =========================
     let current = window.location.pathname.split("/").pop();
 
     links.forEach(link => {
@@ -84,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function(){
             link.style.textDecoration = "underline";
         }
     });
+
 });
 
 function openLogin() {
@@ -217,6 +247,7 @@ function login(){
 
 function register(){
     let nama = document.getElementById("namaDepan").value;
+    let namaBelakang = document.getElementById("namaBelakang").value;
     let email = document.getElementById("regEmail").value;
     let pass = document.getElementById("regPass").value;
 
