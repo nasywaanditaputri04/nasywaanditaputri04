@@ -109,7 +109,9 @@ body {
     z-index: 2000;
     color: #FFFFFF;
 }
-
+body.menu-open .side-nav {
+    left: 0;
+}
 /* =========================
    SIDE NAV
 ========================= */
@@ -137,9 +139,6 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-body.menu-open .side-nav {
-    left: 0;
-}
 /* =========================
    CONTENT SHIFT
 ========================= */
