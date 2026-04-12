@@ -52,6 +52,7 @@ function toggleSearch(){
 }
     
 function toggleMenu(){
+    console.log("MENU DIKLIK"); // debug
     document.body.classList.toggle("menu-open");
 }
 
