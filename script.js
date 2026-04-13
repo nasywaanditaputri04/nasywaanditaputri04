@@ -91,18 +91,25 @@ document.addEventListener("DOMContentLoaded", function(){
         // =========================
         // EVENT KLIK LINK
         // =========================
-        link.addEventListener("click", function(e){
+      link.addEventListener("click", function(e){
 
-            e.preventDefault();
+    // jika klik biasa → pindah halaman
+    if(!e.ctrlKey && e.button !== 1){
+        e.preventDefault();
+        goTo(href);
+    }
+
+    // CTRL / middle click → biarkan default browser (new tab)
+});
 
 // CTRL + CLICK / MIDDLE CLICK = tab baru
-            if(e.ctrlKey || e.button === 1){
-                goToNewTab(href);
-            } else {
-                goTo(href);
-            }
-        });
-    });
+function goTo(page){
+    window.location.href = page;
+}
+
+function goToNewTab(page){
+    window.open(page, "_blank");
+}
 
     // =========================
     // ACTIVE MENU
