@@ -3,54 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <title>Perpustakaan Cakrawala Literasi</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="exl.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+    
 <body>
 <!-- HAMBURGER BUTTON -->
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     
 <!-- SIDE NAV -->
 <div class="side-nav" id="sideNav">
-    <a href="beranda.html">Beranda</a>
-    <a href="profil.html">Profil</a>
-    <a href="layanan.html">Layanan</a>
-    <a href="struktur.html">Struktur Organisasi</a>
-    <a href="koleksi.html">Koleksi</a>
-    <a href="kegiatan.html">Kegiatan & Berita</a>
-    <a href="forum.html">Forum</a>
-    <a href="admin.html">Admin</a>
-    <a href="kontak.html">Kontak & Umpan Balik</a>
+        <a href="beranda.html" class="nav-link text-white">Beranda</a>
+        <a href="profil.html" class="nav-link text-white">Profil</a>
+        <a href="layanan.html" class="nav-link text-white">Layanan</a>
+        <a href="struktur.html" class="nav-link text-white">Struktur Organisasi</a>
+        <a href="koleksi.html" class="nav-link text-white">Koleksi</a>
+        <a href="kegiatan.html" class="nav-link text-white">Kegiatasn & Berita</a>
+        <a href="forum.html" class="nav-link text-white">Forum</a>
+        <a href="admin.html" class="nav-link text-white">Admin</a>
+        <a href="kontak.html" class="nav-link text-white">Kontak & Umpan Balik</a>
     <a href="#" onclick="handleLogin(); return false;" id="loginText">Login</a>
 </div>
 
-<div class="content">
+<div class="content container-fluid">
 
 <header class="hero-banner">
-    <nav class="top-nav">
+    <nav class="top-nav navbar navbar-expend-lg navbar-dark bg-dark px-3">
     <div class="nav-left">
-        <a href="beranda.html">Beranda</a>
-        <a href="profil.html">Profil Perpustakaan</a>
-        <a href="layanan.html">Layanan</a>
-        <a href="struktur.html">Struktur Organisasi</a>
-        <a href="koleksi.html">Koleksi</a>
-        <a href="kegiatan.html">Kegiatan & Berita</a>
-        <a href="forum.html">Forum</a>
-        <a href="admin.html">Admin</a>
-        <a href="kontak.html">Kontak & Umpan Balik</a>
+        <a href="beranda.html" class="nav-link text-white">Beranda</a>
+        <a href="profil.html" class="nav-link text-white">Profil</a>
+        <a href="layanan.html" class="nav-link text-white">Layanan</a>
+        <a href="struktur.html" class="nav-link text-white">Struktur Organisasi</a>
+        <a href="koleksi.html" class="nav-link text-white">Koleksi</a>
+        <a href="kegiatan.html" class="nav-link text-white">Kegiatasn & Berita</a>
+        <a href="forum.html" class="nav-link text-white">Forum</a>
+        <a href="admin.html" class="nav-link text-white">Admin</a>
+        <a href="kontak.html" class="nav-link text-white">Kontak & Umpan Balik</a>
         <a href="#" onclick="handleLogin(); return false;" id="loginText">Login</a>
-        
+
         <div class="search-wrapper">
+            <div class="collapse navbar-collapse show">
             <a href="javascript:void(0)" class="search-icon" onclick="toggleSearch()">🔍︎</a>
             <div class="search-box" id="searchBox">
-                <input type="text" placeholder="Cari Buku">
+                <input type="text" class="form-control" placeholder="Cari Buku">
+            </div>
             </div>
         </div>
     </div>
 
     <div class="nav-right">
         <span id="userDisplay" style="margin-right:10px; font-weight:bold; color:white;"></span>
-       <button class="login-btn" onclick="handleLogin()" id="loginNav">Login</button>
+       <button class="btn btn-danger" onclick="handleLogin()" id="loginNav">Login</button>
     </div>
         
     </nav>
@@ -65,28 +69,33 @@
     <p>📖 Program Donasi Buku untuk Masyarakat</p>
 
 <footer>
-    <div class="footer-container">
+    <div class="footer-container container">
+    <div class="row">
 
     <div class="footer-left">
+    <div class="col-md-4">
     <p><strong>Kontak Resmi</strong></p>
     <p><strong>Email</strong>: perpustakaancakrawalaliterasi@gmail.com</p>
     <p><strong>WhatsApp</strong>: +62 821-6612-1137</p>
     </div>
+    </div>
 
     <div class="footer-left">
+    <div class="col-md-4">
     <p><strong>Jam Layanan:</strong></p>
     <p>Senin – Jumat: 08.00 – 17.00 WIB</p>
     <p>Sabtu: 09.00 – 14.00 WIB</p>
     <p>Minggu & Hari Libur Nasional: Tutup</p>
     </div>
+    </div>
 
     <div class="footer-right">
+    <div class="col-md-4">
     <p><strong>Lokasi Kami:</strong></p>
     <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6210140194926!2d106.82438440979793!3d-6.181451893780201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f442596e0c93%3A0x4ba58be40979fe36!2sPerpustakaan%20Nasional%20Republik%20Indonesia!5e0!3m2!1sid!2sid!4v1775632914888!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        allowfullscreen="" 
-        loading="lazy">
     </iframe>
+    </div>
     </div>
     
     <p class="footer-bottom">© 2026 Perpustakaan Cakrawala Literasi.</p>
@@ -96,6 +105,7 @@
 </div>
 
 <!-- PANGGIL JAVASCRIPT -->
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
     
 </body>
