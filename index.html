@@ -112,18 +112,27 @@
 <hr>
     
 <section>
-    <h3 style="text-align:center;">Contact Us</h3>
-    <form>
-        <label>Email Anda:</label><br>
-        <input type="email" class="form-control" required>
+    <h3 class="text-center">Contact Us</h3>
 
-        <label>No. Telepon:</label><br>
-        <input type="tel" class="form-control" required><br><br>
+    <form class="container">
 
-        <label>Pesan Anda:</label><br>
-        <textarea rows="4" class="form-control" required></textarea><br><br>
+        <div class="mb-3">
+            <label class="form-label">Email Anda:</label>
+            <input type="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">No. Telepon:</label>
+            <input type="tel" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Pesan Anda:</label>
+            <textarea rows="4" class="form-control" required></textarea>
+        </div>
 
         <button type="submit" class="btn btn-primary">Kirim</button>
+
     </form>
 </section>
 
