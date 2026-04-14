@@ -65,13 +65,7 @@ function toggleMenu(){
 }
 
 function lihatEvent(){
-    alert(
-    "Pameran Koleksi Terbaru 2026\n\n" +
-    "Tanggal : 4 April 2026\n" +
-    "Lokasi : Perpustakaan Cakrawala Literasi\n\n" +
-    "Jangan lewatkan kesempatan melihat koleksi terbaru!"
-    );
-
+    window.location.href = "event.html";
 }
 
 function bukaBuku(judul){
@@ -80,6 +74,23 @@ function bukaBuku(judul){
     "\n\nFitur membaca buku digital akan segera tersedia."
     );
 }
+
+function updateClock(){
+    let now = new Date();
+
+    let jam = now.toLocaleTimeString("id-ID");
+    let tanggal = now.toLocaleDateString("id-ID", {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+
+    document.getElementById("clock").innerHTML = jam + " | " + tanggal;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -98,18 +109,22 @@ document.addEventListener("DOMContentLoaded", function(){
         // =========================
         // EVENT KLIK LINK
         // =========================
-     link.addEventListener("click", function(e){
+     links.forEach(link => {
+    let href = link.getAttribute("href");
 
-            // CTRL / middle click → biarkan default browser
-            if(e.ctrlKey || e.button === 1){
-                return;
-            }
+    if(!href || href === "#" || href.startsWith("javascript") || link.id === "loginText") return;
 
-            // klik biasa
-            e.preventDefault();
-            goTo(href);
-        });
+    link.addEventListener("click", function(e){
+
+        // Jika CTRL / middle click → biarkan default (new tab)
+        if(e.ctrlKey || e.button === 1){
+            return;
+        }
+
+        // klik biasa → pindah halaman
+        window.location.href = href;
     });
+});
 
     // =========================
     // ACTIVE MENU
