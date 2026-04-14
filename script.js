@@ -75,6 +75,24 @@ function bukaBuku(judul){
     );
 }
 
+function cariBuku(keyword){
+    let books = document.querySelectorAll(".book-card");
+
+    books.forEach(book => {
+        let judul = book.innerText.toLowerCase();
+
+        if(judul.includes(keyword.toLowerCase())){
+            book.style.display = "block";
+        } else {
+            book.style.display = "none";
+        }
+    });
+}
+
+document.getElementById("searchInput").addEventListener("keyup", function(){
+    cariBuku(this.value);
+});
+
 function updateClock(){
     let now = new Date();
 
@@ -91,6 +109,19 @@ function updateClock(){
 
 setInterval(updateClock, 1000);
 updateClock();
+
+function startVoice(){
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "id-ID";
+
+    recognition.start();
+
+    recognition.onresult = function(event){
+        let text = event.results[0][0].transcript;
+        document.getElementById("searchInput").value = text;
+        cariBuku(text);
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function(){
 
