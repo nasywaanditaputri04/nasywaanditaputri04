@@ -3,6 +3,15 @@
 // =========================
 let isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
+// CTRL + CLICK / MIDDLE CLICK = tab baru
+function goTo(page){
+    window.location.href = page;
+}
+
+function goToNewTab(page){
+    window.open(page, "_blank");
+}
+
 // =========================
 // UPDATE UI LOGIN + NAMA
 // =========================
@@ -52,7 +61,6 @@ function toggleSearch(){
 }
     
 function toggleMenu(){
-    console.log("MENU DIKLIK"); // debug
     document.body.classList.toggle("menu-open");
 }
 
@@ -71,7 +79,6 @@ function bukaBuku(judul){
     "Anda membuka buku: " + judul + 
     "\n\nFitur membaca buku digital akan segera tersedia."
     );
-
 }
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -91,25 +98,18 @@ document.addEventListener("DOMContentLoaded", function(){
         // =========================
         // EVENT KLIK LINK
         // =========================
-      link.addEventListener("click", function(e){
+     link.addEventListener("click", function(e){
 
-    // jika klik biasa → pindah halaman
-    if(!e.ctrlKey && e.button !== 1){
-        e.preventDefault();
-        goTo(href);
-    }
+            // CTRL / middle click → biarkan default browser
+            if(e.ctrlKey || e.button === 1){
+                return;
+            }
 
-    // CTRL / middle click → biarkan default browser (new tab)
-});
-
-// CTRL + CLICK / MIDDLE CLICK = tab baru
-function goTo(page){
-    window.location.href = page;
-}
-
-function goToNewTab(page){
-    window.open(page, "_blank");
-}
+            // klik biasa
+            e.preventDefault();
+            goTo(href);
+        });
+    });
 
     // =========================
     // ACTIVE MENU
@@ -217,12 +217,8 @@ function login(){
         let user = localStorage.getItem(email); // ✅ PERBAIKAN
 
         if(user){
-            try{
                 let data = JSON.parse(user);
-            } catch(e){
-                alert("Data akun rusak");
-                return;
-            }
+           
             if(pass === data.password){
                 document.getElementById("loginMsg").innerHTML =
                 "<span class='success'>Login Berhasil!</span>";
@@ -280,5 +276,7 @@ function register(){
 </script> 
 </body>
 </html>
-    )
+  `);
+
+    newTab.document.close(); // ✅ WAJIB
 }
