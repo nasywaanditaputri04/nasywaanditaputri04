@@ -269,7 +269,7 @@ function login(){
 
     if(email !== "" && pass !== ""){
 
-        let user = localStorage.getItem(email); // ✅ PERBAIKAN
+        let user = localStorage.getItem(email); 
 
         if(user){
                 let data = JSON.parse(user);
@@ -278,7 +278,6 @@ function login(){
                 document.getElementById("loginMsg").innerHTML =
                 "<span class='success'>Login Berhasil!</span>";
             
-                // ✅ SIMPAN LOGIN + NAMA USER
                 localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("userName", data.nama || "User");
             
