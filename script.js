@@ -103,15 +103,18 @@ function updateClock(){
         month: 'long',
         year: 'numeric'
     });
-
     document.getElementById("clock").innerHTML = jam + " | " + tanggal;
 }
-
 setInterval(updateClock, 1000);
 updateClock();
 
 function startVoice(){
-    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    if(!('webkitSpeechRecognition' in window)){
+        alert("Browser tidak mendukung voice typing");
+        return;
+    }
+
+    const recognition = new webkitSpeechRecognition();
     recognition.lang = "id-ID";
 
     recognition.start();
@@ -125,27 +128,32 @@ function startVoice(){
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    // update login UI
+    // =========================
+    // INIT
+    // =========================
     updateLoginUI();
-
+    updateClock();
+    
+    // =========================
+    // SEARCH INPUT (AMAN)
+    // =========================
+    let searchInput = document.getElementById("searchInput");
+    if(searchInput){
+        searchInput.addEventListener("keyup", function(){
+            cariBuku(this.value);
+        });
+    }
+    // =========================
+    // NAVIGATION
+    // =========================
     let links = document.querySelectorAll(".top-nav a, .side-nav a");
 
     links.forEach(link => {
-
         let href = link.getAttribute("href");
 
-        // ⛔ skip link yang bukan navigasi
         if(!href || href === "#" || href.startsWith("javascript") || link.id === "loginText") return;
 
-        // =========================
-        // EVENT KLIK LINK
-        // =========================
-     links.forEach(link => {
-    let href = link.getAttribute("href");
-
-    if(!href || href === "#" || href.startsWith("javascript") || link.id === "loginText") return;
-
-    link.addEventListener("click", function(e){
+        link.addEventListener("click", function(e){
 
         // Jika CTRL / middle click → biarkan default (new tab)
         if(e.ctrlKey || e.button === 1){
@@ -153,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
         // klik biasa → pindah halaman
+        e.preventDefault();
         window.location.href = href;
     });
 });
@@ -160,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function(){
     // =========================
     // ACTIVE MENU
     // =========================
-    let current = window.location.pathname.split("/").pop();
+   let current = window.location.pathname.split("/").pop();
 
     links.forEach(link => {
         if(link.getAttribute("href") === current){
