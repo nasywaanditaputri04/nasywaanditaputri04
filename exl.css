@@ -202,8 +202,9 @@ section {
 
 /* Animasi halus */
 .dropdown-menu {
-    display: none;
-    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
 }
 /* Side nav dropdown fix */
 .side-nav .dropdown-menu {
@@ -223,6 +224,11 @@ section {
 
 .dropdown-menu {
     z-index: 9999;
+}
+.navbar .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    display: block;
 }
 /* =========================
    FORM STYLE
