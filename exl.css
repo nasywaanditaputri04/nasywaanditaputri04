@@ -186,6 +186,40 @@ hr {
     margin: 30px auto;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+/* Dropdown muncul saat hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Animasi halus */
+.dropdown-menu {
+    transition: all 0.3s ease;
+}
+/* Side nav dropdown fix */
+.side-nav .dropdown-menu {
+    position: static;
+    background-color: #205A28;
+    border: none;
+}
+
+/* Warna item dropdown side nav */
+.side-nav .dropdown-item {
+    color: white;
+}
+
+.side-nav .dropdown-item:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
 /* =========================
    FORM STYLE
 ========================= */
@@ -305,6 +339,9 @@ footer {
 
     footer {
         padding: 80px 20px;
+    }
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
     }
 }
 
