@@ -201,8 +201,9 @@ section {
 
 /* TEXT + TANDA v */
 .dropdown-toggle-custom::after {
-    content: " v";
-    font-size: 12px;
+    content: " ▼";
+    font-size: 10px;
+}
 }
 
 /* DROPDOWN MENU */
@@ -210,7 +211,7 @@ section {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #205A28;
+    background: #FFFFFF;
     min-width: 200px;
 
     display: none;
@@ -250,8 +251,21 @@ section {
 /* KHUSUS SIDE NAV */
 .side-nav .dropdown-menu-custom {
     position: static;
+    background: #FFFFFF;
+    padding-left: 15px;
+}
+/* ITEM SUBMENU */
+.side-nav .dropdown-menu-custom a {
+    font-size: 14px; /* 👉 lebih kecil dari menu utama */
+    padding: 10px 15px;
+    opacity: 0.9;
 }
 
+/* HOVER SUBMENU */
+.side-nav .dropdown-menu-custom a:hover {
+    background-color: rgba(255,255,255,0.15);
+    padding-left: 20px; /* 👉 efek geser dikit */
+}
 /* =========================
    FORM STYLE
 ========================= */
