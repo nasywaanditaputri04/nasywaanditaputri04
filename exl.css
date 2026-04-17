@@ -202,6 +202,7 @@ section {
 
 /* Animasi halus */
 .dropdown-menu {
+    display: none;
     transition: all 0.3s ease;
 }
 /* Side nav dropdown fix */
@@ -220,6 +221,9 @@ section {
     background-color: rgba(255,255,255,0.1);
 }
 
+.dropdown-menu {
+    z-index: 9999;
+}
 /* =========================
    FORM STYLE
 ========================= */
