@@ -151,7 +151,13 @@ document.addEventListener("DOMContentLoaded", function(){
     links.forEach(link => {
         let href = link.getAttribute("href");
 
-        if(!href || href === "#" || href.startsWith("javascript") || link.id === "loginText") return;
+        if(
+            !href || 
+            href === "#" || 
+            href.startsWith("javascript") || 
+            link.id === "loginText" ||
+            href.startsWith("#") 
+        ) return;;
 
         link.addEventListener("click", function(e){
 
