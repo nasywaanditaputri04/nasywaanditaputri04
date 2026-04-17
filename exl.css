@@ -194,39 +194,64 @@ section {
     scroll-margin-top: 100px;
 }
 
-/* Dropdown muncul saat hover */
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
+/* WRAPPER */
+.dropdown {
+    position: relative;
 }
 
-/* Animasi halus */
-.dropdown-menu {
+/* TEXT + TANDA v */
+.dropdown-toggle-custom::after {
+    content: " v";
+    font-size: 12px;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu-custom {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #205A28;
+    min-width: 200px;
+
+    display: none;
+    flex-direction: column;
+
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+
     opacity: 0;
-    visibility: hidden;
+    transform: translateY(10px);
     transition: 0.3s;
-}
-/* Side nav dropdown fix */
-.side-nav .dropdown-menu {
-    position: static;
-    background-color: #205A28;
-    border: none;
+    z-index: 2000;
 }
 
-/* Warna item dropdown side nav */
-.side-nav .dropdown-item {
+/* ITEM */
+.dropdown-menu-custom a {
     color: white;
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.side-nav .dropdown-item:hover {
+/* HOVER ITEM */
+.dropdown-menu-custom a:hover {
     background-color: rgba(255,255,255,0.1);
 }
 
-.navbar .dropdown:hover .dropdown-menu {
+/* MUNCUL SAAT HOVER */
+.dropdown:hover .dropdown-menu-custom {
+    display: flex;
     opacity: 1;
-    visibility: visible;
-    display: block;
+    transform: translateY(0);
 }
+
+/* KHUSUS SIDE NAV */
+.side-nav .dropdown-menu-custom {
+    position: static;
+}
+
 /* =========================
    FORM STYLE
 ========================= */
