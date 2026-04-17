@@ -211,7 +211,7 @@ section {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #FFFFFF;
+    background: ##C72B32;
     min-width: 200px;
 
     display: none;
@@ -251,7 +251,7 @@ section {
 /* KHUSUS SIDE NAV */
 .side-nav .dropdown-menu-custom {
     position: static;
-    background: #FFFFFF;
+    background: ##C72B32;
     padding-left: 15px;
 }
 /* ITEM SUBMENU */
