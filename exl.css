@@ -1,7 +1,8 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #FFFFFF;
+    background-color: #F4F7F5;
+    color: #2B2B2B;
     overflow-x: hidden;
 }
 
@@ -48,7 +49,9 @@ body {
     z-index: 1500;
     display: flex;
     align-items: center;
-
+    background: rgba(58, 107, 78, 0.95); /* hijau utama */
+    padding: 10px 20px;
+    border-radius: 8px;
 }
 
 .top-nav a {
@@ -61,6 +64,7 @@ body {
 
 .top-nav a:hover {
     text-decoration: underline;
+    color: #A8C3A0;
 }
 
 /* SEARCH ICON */
@@ -113,9 +117,7 @@ body {
     z-index: 2000;
     color: #FFFFFF;
 }
-body.menu-open .side-nav {
-    left: 0;
-}
+
 /* =========================
    SIDE NAV
 ========================= */
@@ -125,10 +127,14 @@ body.menu-open .side-nav {
     top: 0;
     width: 230px;
     height: 100%;
-    background-color: #205A28;
+    background-color: #3A6B4E;
     padding-top: 80px;
     transition: 0.4s ease;
     z-index: 1200;
+}
+
+body.menu-open .side-nav {
+    left: 0;
 }
 
 .side-nav a {
@@ -140,7 +146,7 @@ body.menu-open .side-nav {
 }
 
 .side-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #6FAF8F;
 }
 
 .event-img{
@@ -171,7 +177,7 @@ section {
 }
 
 h2 {
-    color: #205A28;
+    color: #3A6B4E;
     font-size: 26px;
 }
 
@@ -181,7 +187,7 @@ h3 {
 
 /* HR */
 hr {
-    border: 1px solid #205A28;
+    border: 1px solid #A8C3A0;
     width: 80%;
     margin: 30px auto;
 }
@@ -212,7 +218,7 @@ section {
 
 /* DROPDOWN UMUM */
 .dropdown-menu-custom {
-    background: #C72B32;
+    background: #3A6B4E;
     min-width: 200px;
 
     display: block;
@@ -233,7 +239,7 @@ section {
 
 /* HOVER ITEM */
 .dropdown-menu-custom a:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: #6FAF8F;
 }
 
 /* MUNCUL SAAT HOVER */
@@ -254,7 +260,7 @@ section {
 /* KHUSUS SIDE NAV */
 .side-nav .dropdown-menu-custom {
     position: static;
-    background: #C72B32;
+    background: #4F8A6A;
     padding-left: 15px;
 }
 /* ITEM SUBMENU */
@@ -287,7 +293,7 @@ form textarea {
 }
 
 button {
-    background-color: #C72B32;
+    background-color: #3A6B4E;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -297,6 +303,7 @@ button {
 }
 
 button:hover {
+    background-color: #6FAF8F;
     opacity: 0.85;
 }
 
@@ -304,7 +311,7 @@ button:hover {
    FOOTER
 ========================= */
 footer {
-    background-color: #205A28;
+    background-color:#3A6B4E;
     padding: 40px 20px; 
     color: white;
     font-size: 15px;
