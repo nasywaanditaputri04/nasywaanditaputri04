@@ -199,32 +199,27 @@ section {
     position: relative;
 }
 
+/* TOMBOL PROFIL */
+.dropdown-toggle-custom {
+    cursor: pointer;
+}
+
 /* TEXT + TANDA v */
 .dropdown-toggle-custom::after {
     content: " ▼";
     font-size: 10px;
 }
-}
 
-/* DROPDOWN MENU */
+/* DROPDOWN UMUM */
 .dropdown-menu-custom {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: ##C72B32;
+    background: #C72B32;
     min-width: 200px;
 
-    display: none;
-    flex-direction: column;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
 
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-
-    opacity: 0;
-    transform: translateY(10px);
-    transition: 0.3s;
-    z-index: 2000;
+    transition: max-height 0.3s ease;
 }
 
 /* ITEM */
@@ -248,10 +243,20 @@ section {
     transform: translateY(0);
 }
 
+/* =========================
+   TOP NAV (dropdown turun)
+========================= */
+.top-nav .dropdown-menu-custom {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+}
+
 /* KHUSUS SIDE NAV */
 .side-nav .dropdown-menu-custom {
     position: static;
-    background: ##C72B32;
+    background: #C72B32;
     padding-left: 15px;
 }
 /* ITEM SUBMENU */
