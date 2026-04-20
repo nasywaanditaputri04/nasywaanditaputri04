@@ -219,7 +219,7 @@ function openLogin() {
         color:white;
     }
     .box{
-        background:rgba(0,0,0,0.7);
+        background:rgba(244,247,245,0.95);
         padding:30px;
         max-width:350px;
         margin:auto;
@@ -231,12 +231,12 @@ function openLogin() {
     }
     button{
         padding:8px 15px;
-        background:#C72B32;
+        background:#3A6B4E;
         color:white;
         border:none;
         cursor:pointer;
     }
-    a{color:#FEEAC9;cursor:pointer;}
+    a{color:#3A6B4E;cursor:pointer;}
 
     /* TEXT BERKEDIP */
     @keyframes blink{
