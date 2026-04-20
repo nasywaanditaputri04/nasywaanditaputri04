@@ -11,6 +11,23 @@ function goTo(page){
 function goToNewTab(page){
     window.open(page, "_blank");
 }
+function toggleDropdown(el){
+    let menu = el.nextElementSibling;
+
+    // tutup semua dropdown lain
+    document.querySelectorAll(".dropdown-menu-custom").forEach(item => {
+        if(item !== menu){
+            item.style.maxHeight = null;
+        }
+    });
+
+    // toggle
+    if(menu.style.maxHeight){
+        menu.style.maxHeight = null;
+    } else {
+        menu.style.maxHeight = menu.scrollHeight + "px";
+    }
+}
 
 // =========================
 // UPDATE UI LOGIN + NAMA
